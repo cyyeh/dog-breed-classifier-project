@@ -27,7 +27,7 @@ h1 {
 }
 
 #cover-2 {
-  background-image: url("cover-ai.png");
+  background-image: url("cover-ai.jpg");
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -78,7 +78,7 @@ h1 {
     background-size: cover;
   }
   #cover-2 {
-    background-size: 60%;
+    background-size: cover;
   }
 }
 
@@ -98,7 +98,7 @@ h1 {
     background-size: contain;
   }
   #cover-2 {
-    background-size: 55%;
+    background-size: contain;
   }
 }
 
@@ -118,6 +118,6 @@ h1 {
     background-size: contain;
   }
   #cover-2 {
-    background-size: 400px;
+    background-size: contain;
   }
 }
