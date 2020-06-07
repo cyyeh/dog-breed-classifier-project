@@ -100,7 +100,7 @@ window.addEventListener('beforeinstallprompt', event => {
   // stash the event so it can be triggered later
   window.deferredPrompt = event
   // remove the "hidden" class from the install button container
-  divInstall.classList.toggle('hidden', false)
+  // divInstall.classList.toggle('hidden', false)
 })
 
 imgUpload.addEventListener(
