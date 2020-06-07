@@ -3,19 +3,54 @@ const butInstall = document.getElementById('but-install')
 const imgUpload = document.getElementById('img-upload')
 const imgPreview = document.getElementById('img-preview')
 const predictButton = document.getElementById('predict-button')
+const progressBar = document.getElementById('progress-bar')
+const predictionAPIEndpoint =
+  'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 
-window.onload = event => {
-  console.log('page is fully loaded')
-  // initialize materialize
-  M.AutoInit()
-  M.Carousel.init({
-    fullWidth: true,
-    indicators: true
+let imgBase64 = ''
+
+const predictDogBreeds = imgBase64 => {
+  progressBar.classList.toggle('hidden', false)
+
+  const apiResponse = fetch(predictionAPIEndpoint, {
+    method: 'POST',
+    body: JSON.stringify({
+      base64: imgBase64
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
   })
+    .then(function() {
+      progressBar.classList.toggle('hidden', true)
+      const predictionResults = apiResponse.json()
+      dealingWithPredictions(predictionResults)
+    })
+    .catch(function() {
+      progressBar.classList.toggle('hidden', true)
+    })
+}
+
+const dealingWithPredictions = predictionResults => {
+  console.log(predictionResults)
+  if ('dog_detected' in predictionResults) {
+    // successfully detect a dog
+    if (predictionResults.dog_detected) {
+      console.log(predictionResults.message)
+    } else {
+      // no dog is detected
+      console.log(predictionResults.message)
+    }
+  } else if ('detail' in predictionResults) {
+    console.log(predictionResults.detail)
+  } else {
+    console.log('unknown error!')
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.getElementById('project-intro-slider')
+  M.AutoInit()
   M.Carousel.init(carousel, {
     fullWidth: true,
     indicators: true
@@ -34,7 +69,6 @@ imgUpload.addEventListener(
   'change',
   event => {
     const selectedFile = event.target.files[0]
-    console.log(selectedFile)
     if (selectedFile.type.startsWith('image/')) {
       let reader = new FileReader()
 
@@ -47,6 +81,10 @@ imgUpload.addEventListener(
         imgPreview.height = imgPreview.width * 0.75
       }
 
+      reader.onloadend = () => {
+        imgBase64 = reader.result
+      }
+
       reader.readAsDataURL(selectedFile) // convert to base64 string
       predictButton.classList.toggle('disabled', false)
     } else {
@@ -57,6 +95,10 @@ imgUpload.addEventListener(
   },
   false
 )
+
+predictButton.addEventListener('click', () => {
+  predictDogBreeds(imgBase64)
+})
 
 butInstall.addEventListener('click', () => {
   console.log('👍', 'butInstall-clicked')

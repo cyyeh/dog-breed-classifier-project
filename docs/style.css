@@ -80,6 +80,10 @@ h1 {
   #cover-2 {
     background-size: cover;
   }
+  .cover-subtitle {
+    font-size: 20px !important;
+    margin-top: 0px;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -101,6 +105,10 @@ h1 {
   #cover-2 {
     background-size: 768px;
   }
+  .cover-subtitle {
+    font-size: 16px !important;
+    margin-top: 0px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -121,5 +129,9 @@ h1 {
   }
   #cover-2 {
     background-size: 768px;
+  }
+  .cover-subtitle {
+    font-size: 20px !important;
+    margin-top: 0px;
   }
 }
