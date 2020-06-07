@@ -24,14 +24,12 @@ h1 {
   background-image: url("cover-dog.jpg");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
 }
 
 #cover-2 {
   background-image: url("cover-ai.png");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
 }
 
 #main-content {
@@ -76,6 +74,12 @@ h1 {
   .brand-logo {
     font-size: 16px !important;
   }
+  #cover-1 {
+    background-size: cover;
+  }
+  #cover-2 {
+    background-size: 60%;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -90,6 +94,12 @@ h1 {
     margin: 0 auto;
     width: 768px;
   }
+  #cover-1 {
+    background-size: contain;
+  }
+  #cover-2 {
+    background-size: 55%;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -103,5 +113,11 @@ h1 {
   #main-content {
     margin: 0 auto;
     width: 768px;
+  }
+  #cover-1 {
+    background-size: contain;
+  }
+  #cover-2 {
+    background-size: 30%;
   }
 }
