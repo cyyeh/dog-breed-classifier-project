@@ -57,6 +57,13 @@ h1 {
   margin-bottom: 40px;
 }
 
+#no-results-found {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+}
+
 #install-container {
   position: absolute;
   bottom: 1em;

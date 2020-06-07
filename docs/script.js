@@ -7,6 +7,8 @@ const progressBar = document.getElementById('progress-bar')
 const predictionResultsContainer = document.getElementById(
   'prediction-results-container'
 )
+const noResultsFound = document.getElementById('no-results-found')
+const predictionContents = document.getElementById('prediction-contents')
 const firstBreedName = document.getElementById('first-breed-name')
 const firstBreedProb = document.getElementById('first-breed-prob')
 const secondBreedName = document.getElementById('second-breed-name')
@@ -31,7 +33,10 @@ const predictDogBreeds = async imgBase64 => {
     }
   }).catch(function() {
     progressBar.classList.toggle('hidden', true)
-    predictionResultsContainer.classList.toggle('hidden', true)
+    predictionResultsContainer.classList.toggle('hidden', false)
+    predictionContents.classList.toggle('hidden', true)
+    noResultsFound.classList.toggle('hidden', false)
+    noResultsFound.textContent = '發生異常，請稍後再試！'
   })
 
   const predictionResults = await apiResponse.json()
@@ -40,7 +45,7 @@ const predictDogBreeds = async imgBase64 => {
 }
 
 const dealingWithPredictions = predictionResults => {
-  console.log(predictionResults)
+  predictionResultsContainer.classList.toggle('hidden', false)
   if ('dog_detected' in predictionResults) {
     // successfully detect a dog
     if (predictionResults.dog_detected) {
@@ -66,15 +71,18 @@ const dealingWithPredictions = predictionResults => {
       }
     } else {
       // no dog is detected
-      console.log(predictionResults.message)
+      predictionContents.classList.toggle('hidden', true)
+      noResultsFound.classList.toggle('hidden', false)
+      noResultsFound.textContent = '嗯......狗狗偵測器沒有偵測到狗狗喔！'
     }
-    predictionResultsContainer.classList.toggle('hidden', false)
   } else if ('detail' in predictionResults) {
-    predictionResultsContainer.classList.toggle('hidden', true)
-    console.log(predictionResults.detail)
+    predictionContents.classList.toggle('hidden', true)
+    noResultsFound.classList.toggle('hidden', false)
+    noResultsFound.textContent = '發生異常，請稍後再試！'
   } else {
-    predictionResultsContainer.classList.toggle('hidden', true)
-    console.log('unknown error!')
+    predictionContents.classList.toggle('hidden', true)
+    noResultsFound.classList.toggle('hidden', false)
+    noResultsFound.textContent = '發生異常，請稍後再試！'
   }
 }
 
@@ -99,6 +107,8 @@ imgUpload.addEventListener(
   'change',
   event => {
     predictionResultsContainer.classList.toggle('hidden', true)
+    predictionContents.classList.toggle('hidden', false)
+    noResultsFound.classList.toggle('hidden', true)
 
     const selectedFile = event.target.files[0]
     if (selectedFile.type.startsWith('image/')) {
@@ -130,6 +140,8 @@ imgUpload.addEventListener(
 
 predictButton.addEventListener('click', () => {
   predictionResultsContainer.classList.toggle('hidden', true)
+  predictionContents.classList.toggle('hidden', false)
+  noResultsFound.classList.toggle('hidden', true)
   predictDogBreeds(imgBase64)
 })
 
