@@ -33,8 +33,8 @@ h1 {
 }
 
 #main-content {
-  margin-right: 10px;
-  margin-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #img-preview {
@@ -90,15 +90,16 @@ h1 {
     padding-left: 20px;
     padding-right: 20px;
   }
-  #main-content {
+  #main-content,
+  #nav-container {
     margin: 0 auto;
     width: 768px;
   }
   #cover-1 {
-    background-size: contain;
+    background-size: 768px;
   }
   #cover-2 {
-    background-size: contain;
+    background-size: 768px;
   }
 }
 
@@ -110,14 +111,15 @@ h1 {
     padding-left: 20px;
     padding-right: 20px;
   }
-  #main-content {
+  #main-content,
+  #nav-container {
     margin: 0 auto;
     width: 768px;
   }
   #cover-1 {
-    background-size: contain;
+    background-size: 768px;
   }
   #cover-2 {
-    background-size: contain;
+    background-size: 768px;
   }
 }
