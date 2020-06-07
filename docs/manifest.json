@@ -1,7 +1,7 @@
 {
-  "short_name": "Weather",
-  "name": "Weather - Do I need an umbrella?",
-  "description": "Weather forecast information",
+  "short_name": "狗狗品種偵測器",
+  "name": "狗狗品種偵測器",
+  "description": "一秒拍照來更認識狗狗吧！",
   "icons": [
     {
       "src": "https://via.placeholder.com/48",
