@@ -34,9 +34,9 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "/dog-breed-classifier",
   "background_color": "#3367D6",
   "display": "standalone",
-  "scope": "/",
+  "scope": "/dog-breed-classifier",
   "theme_color": "#3367D6"
 }
