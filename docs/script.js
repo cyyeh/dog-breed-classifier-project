@@ -37,7 +37,7 @@ window.addEventListener('appinstalled', event => {
 /* Only register a service worker if it's supported */
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register('./service-worker.js', { scope: '/dog-breed-classifier/' })
+    .register('service-worker.js', { scope: '/dog-breed-classifier/' })
     .then(function(reg) {
       console.log('Registration succeeded. Scope is ' + reg.scope)
     })
