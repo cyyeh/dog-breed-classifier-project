@@ -4,6 +4,9 @@ const imgUpload = document.getElementById('img-upload')
 const imgPreview = document.getElementById('img-preview')
 const predictButton = document.getElementById('predict-button')
 const progressBar = document.getElementById('progress-bar')
+const predictionResultsContainer = document.getElementById(
+  'prediction-results-container'
+)
 const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 
@@ -22,6 +25,7 @@ const predictDogBreeds = async imgBase64 => {
     }
   }).catch(function() {
     progressBar.classList.toggle('hidden', true)
+    predictionResultsContainer.classList.toggle('hidden', true)
   })
 
   const predictionResults = await apiResponse.json()
@@ -39,9 +43,12 @@ const dealingWithPredictions = predictionResults => {
       // no dog is detected
       console.log(predictionResults.message)
     }
+    predictionResultsContainer.classList.toggle('hidden', false)
   } else if ('detail' in predictionResults) {
+    predictionResultsContainer.classList.toggle('hidden', true)
     console.log(predictionResults.detail)
   } else {
+    predictionResultsContainer.classList.toggle('hidden', true)
     console.log('unknown error!')
   }
 }
@@ -66,6 +73,8 @@ window.addEventListener('beforeinstallprompt', event => {
 imgUpload.addEventListener(
   'change',
   event => {
+    predictionResultsContainer.classList.toggle('hidden', true)
+
     const selectedFile = event.target.files[0]
     if (selectedFile.type.startsWith('image/')) {
       let reader = new FileReader()
@@ -95,6 +104,7 @@ imgUpload.addEventListener(
 )
 
 predictButton.addEventListener('click', () => {
+  predictionResultsContainer.classList.toggle('hidden', true)
   predictDogBreeds(imgBase64)
 })
 
@@ -139,7 +149,7 @@ if ('serviceWorker' in navigator) {
  */
 if (
   window.location.protocol === 'http:' &&
-  window.location.host != 'localhost'
+  window.location.host.indexOf('localhost') === -1
 ) {
   const requireHTTPS = document.getElementById('requireHTTPS')
   const link = requireHTTPS.querySelector('a')

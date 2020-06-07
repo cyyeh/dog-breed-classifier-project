@@ -8,6 +8,7 @@
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="style.css">
     <!-- Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -61,6 +62,25 @@
 
           <div class="progress hidden" id="progress-bar">
               <div class="indeterminate"></div>
+          </div>
+
+          <div id="prediction-results-container" class="hidden">
+            <p class="predictiion-results-headline">預測結果</p>
+            <hr/>
+            <div id="prediction-contents">
+              <p id="first-breed-name" class="dog-breed-name">拉布拉多</p>
+              <div class="w3-light-grey w3-round">
+                <div id="first-breed-prob" class="w3-container w3-green w3-round" style="width:80%">80%</div>
+              </div><br>
+              <p id="second-breed-name" class="dog-breed-name" id="second-breed">哈士奇</p>
+              <div class="w3-light-grey w3-round">
+                <div id="second-breed-prob" class="w3-container w3-green w3-round" style="width:50%">20%</div>
+              </div><br>
+              <p id="third-breed-name" class="dog-breed-name">西伯利亞雪橇犬</p>
+              <div class="w3-light-grey w3-round">
+                <div id="third-breed-prob" class="w3-container w3-green w3-round" style="width:20%">20%</div>
+              </div><br>
+            </div>
           </div>
         </div>
         <div id='predict-container'>

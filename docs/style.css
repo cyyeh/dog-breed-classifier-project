@@ -1,5 +1,4 @@
 body {
-  color: white;
   font-family: Helvetica, Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
   width: 100%;
@@ -32,6 +31,11 @@ h1 {
   background-repeat: no-repeat;
 }
 
+.cover-subtitle {
+  font-size: 20px !important;
+  margin-top: 0px;
+}
+
 #main-content {
   padding-left: 20px;
   padding-right: 20px;
@@ -46,6 +50,11 @@ h1 {
   margin-top: 20px;
   margin-bottom: 25px;
   text-align: center;
+}
+
+#prediction-contents {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 #install-container {
@@ -80,9 +89,11 @@ h1 {
   #cover-2 {
     background-size: cover;
   }
-  .cover-subtitle {
-    font-size: 20px !important;
-    margin-top: 0px;
+  .predictiion-results-headline {
+    font-size: 20px;
+  }
+  .dog-breed-name {
+    font-size: 18px;
   }
 }
 
@@ -105,9 +116,11 @@ h1 {
   #cover-2 {
     background-size: 768px;
   }
-  .cover-subtitle {
-    font-size: 16px !important;
-    margin-top: 0px;
+  .predictiion-results-headline {
+    font-size: 20px;
+  }
+  .dog-breed-name {
+    font-size: 18px;
   }
 }
 
@@ -130,8 +143,10 @@ h1 {
   #cover-2 {
     background-size: 768px;
   }
-  .cover-subtitle {
-    font-size: 20px !important;
-    margin-top: 0px;
+  .predictiion-results-headline {
+    font-size: 20px;
+  }
+  .dog-breed-name {
+    font-size: 18px;
   }
 }
