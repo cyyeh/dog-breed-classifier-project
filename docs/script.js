@@ -9,10 +9,10 @@ const predictionAPIEndpoint =
 
 let imgBase64 = ''
 
-const predictDogBreeds = imgBase64 => {
+const predictDogBreeds = async imgBase64 => {
   progressBar.classList.toggle('hidden', false)
 
-  const apiResponse = fetch(predictionAPIEndpoint, {
+  const apiResponse = await fetch(predictionAPIEndpoint, {
     method: 'POST',
     body: JSON.stringify({
       base64: imgBase64
@@ -20,15 +20,13 @@ const predictDogBreeds = imgBase64 => {
     headers: {
       'Content-Type': 'application/json'
     }
+  }).catch(function() {
+    progressBar.classList.toggle('hidden', true)
   })
-    .then(function() {
-      progressBar.classList.toggle('hidden', true)
-      const predictionResults = apiResponse.json()
-      dealingWithPredictions(predictionResults)
-    })
-    .catch(function() {
-      progressBar.classList.toggle('hidden', true)
-    })
+
+  const predictionResults = await apiResponse.json()
+  progressBar.classList.toggle('hidden', true)
+  dealingWithPredictions(predictionResults)
 }
 
 const dealingWithPredictions = predictionResults => {
