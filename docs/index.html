@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hello!</title>
+    <title>狗狗品種偵測器</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style.css">
     <!-- Manifest -->
     <link rel="manifest" href="manifest.json">
   </head>  
   <body>
-    <h1>
-      InstallableR
-    </h1>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">
+          <i class="material-icons" id="logo-icon">pets</i>
+          <span>狗狗品種偵測器</span>
+        </a>
+      </div>
+    </nav>
+
+    <form action="#">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span><i class="material-icons">camera_alt</i></span>
+          <input type="file" multiple>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" accept="image/*" 
+          capture="camera" placeholder="拍照或上傳照片"/>
+        </div>
+      </div>
+    </form>
+
     
+    <!--
     <p id="requireHTTPS" class="hidden">
       <b>STOP!</b> This page <b>must</b> be served over HTTPS.
       Please <a>reload this page via HTTPS</a>.
     </p>
-    
-    <p>
-      Make me installable, follow the 
-      <a href="https://web.dev/installable/discover-installable/codelab-make-installable">instructions</a> here.
-    </p>
+    -->
     
     <!-- Install button, hidden by default -->
     <div id="installContainer" class="hidden">
@@ -34,5 +52,6 @@
 
     <!-- import the webpage's javascript file -->
     <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
   </body>
 </html>

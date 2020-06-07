@@ -1,5 +1,4 @@
 body {
-  background-color: #546e7a;
   color: white;
   font-family: Helvetica, Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
@@ -32,4 +31,36 @@ h1 {
   color: white;
   font-size: 1em;
   padding: 0.75em;
+}
+
+@media only screen and (max-width: 747px) {
+  #logo-icon {
+    font-size: 30px;
+  }
+  .nav-wrapper {
+    text-align: center;
+  }
+  .brand-logo {
+    font-size: 16px !important;
+  }
+}
+
+@media only screen and (min-width: 748px) and (max-width: 1023px) {
+  #logo-icon {
+    font-size: 36px;
+  }
+  .nav-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #logo-icon {
+    font-size: 36px;
+  }
+  .nav-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
