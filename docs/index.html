@@ -22,32 +22,69 @@
       </div>
     </nav>
 
-    <form action="#">
-      <div class="file-field input-field">
-        <div class="btn">
-          <span><i class="material-icons">camera_alt</i></span>
-          <input type="file" multiple>
+    <div id='container'>
+      <div class="carousel carousel-slider center" id='project-intro-slider'>
+        <div class="carousel-fixed-item center">
+          <a class="btn waves-effect white grey-text darken-text-2">button</a>
         </div>
-        <div class="file-path-wrapper">
-          <input class="file-path validate" type="text" accept="image/*" 
-          capture="camera" placeholder="拍照或上傳照片"/>
+        <div class="carousel-item red white-text" href="#one!">
+          <h2>First Panel</h2>
+          <p class="white-text">This is your first panel</p>
+        </div>
+        <div class="carousel-item amber white-text" href="#two!">
+          <h2>Second Panel</h2>
+          <p class="white-text">This is your second panel</p>
+        </div>
+        <div class="carousel-item green white-text" href="#three!">
+          <h2>Third Panel</h2>
+          <p class="white-text">This is your third panel</p>
+        </div>
+        <div class="carousel-item blue white-text" href="#four!">
+          <h2>Fourth Panel</h2>
+          <p class="white-text">This is your fourth panel</p>
         </div>
       </div>
-    </form>
 
-    
-    <!--
-    <p id="requireHTTPS" class="hidden">
-      <b>STOP!</b> This page <b>must</b> be served over HTTPS.
-      Please <a>reload this page via HTTPS</a>.
-    </p>
-    -->
-    
-    <!-- Install button, hidden by default -->
-    <div id="installContainer" class="hidden">
-      <button id="butInstall" type="button">
-        Install
-      </button>
+      <div id='main-content'>
+        <div id='img-upload-container'>
+          <form action="#">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span><i class="material-icons">camera_alt</i></span>
+                <input id="img-upload" type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" accept="image/*" 
+                capture="camera" placeholder="拍照或上傳照片"/>
+              </div>
+            </div>
+          </form>
+  
+          <div id='img-preview-container'>
+            <img class="materialboxed" id="img-preview"></img>
+          </div>
+
+          <div id='button-container'>
+            <button id="predict-button" class="btn waves-effect waves-light disabled" type="submit" name="action">開始偵測
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+        <div id='predict-container'>
+        </div>
+        
+        <p id="requireHTTPS" class="hidden">
+          <b>STOP!</b> This page <b>must</b> be served over HTTPS.
+          Please <a>reload this page via HTTPS</a>.
+        </p>
+        
+        <!-- Install button, hidden by default -->
+        <div id="install-container" class="hidden">
+          <button id="but-install" type="button">
+            Install
+          </button>
+        </div>        
+      </div>
     </div>
 
     <!-- import the webpage's javascript file -->

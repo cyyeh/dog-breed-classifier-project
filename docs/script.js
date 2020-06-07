@@ -1,7 +1,27 @@
-const divInstall = document.getElementById('installContainer')
-const butInstall = document.getElementById('butInstall')
+const divInstall = document.getElementById('install-container')
+const butInstall = document.getElementById('but-install')
+const imgUpload = document.getElementById('img-upload')
+const imgPreview = document.getElementById('img-preview')
+const predictButton = document.getElementById('predict-button')
 
-/* Put code here */
+window.onload = event => {
+  console.log('page is fully loaded')
+  // initialize materialize
+  M.AutoInit()
+  M.Carousel.init({
+    fullWidth: true,
+    indicators: true
+  })
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.getElementById('project-intro-slider')
+  M.Carousel.init(carousel, {
+    fullWidth: true,
+    indicators: true
+  })
+})
+
 window.addEventListener('beforeinstallprompt', event => {
   console.log('👍', 'beforeinstallprompt', event)
   // stash the event so it can be triggered later
@@ -9,6 +29,31 @@ window.addEventListener('beforeinstallprompt', event => {
   // remove the "hidden" class from the install button container
   divInstall.classList.toggle('hidden', false)
 })
+
+imgUpload.addEventListener(
+  'change',
+  event => {
+    const selectedFile = event.target.files[0]
+    console.log(selectedFile)
+    if (selectedFile.type.startsWith('image/')) {
+      let reader = new FileReader()
+
+      reader.onload = event => {
+        imgPreview.src = event.target.result
+        imgPreview.width = window.innerWidth
+        imgPreview.height = imgPreview.width * 0.75
+      }
+
+      reader.readAsDataURL(selectedFile) // convert to base64 string
+      predictButton.classList.toggle('disabled', false)
+    } else {
+      imgPreview.src = null
+      imgPreview.height = 0
+      predictButton.classList.toggle('disabled', true)
+    }
+  },
+  false
+)
 
 butInstall.addEventListener('click', () => {
   console.log('👍', 'butInstall-clicked')
@@ -49,11 +94,9 @@ if ('serviceWorker' in navigator) {
  * Installability requires a service worker with a fetch event handler, and
  * if the page isn't served over HTTPS, the service worker won't load.
  */
-/*
 if (window.location.protocol === 'http:') {
   const requireHTTPS = document.getElementById('requireHTTPS')
   const link = requireHTTPS.querySelector('a')
   link.href = window.location.href.replace('http://', 'https://')
   requireHTTPS.classList.remove('hidden')
 }
-*/
