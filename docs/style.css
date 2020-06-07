@@ -20,6 +20,21 @@ h1 {
   display: none !important;
 }
 
+#cover-1 {
+  background-image: url("cover-dog.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#cover-2 {
+  background-image: url("cover-ai.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: 22px;
+}
+
 #main-content {
   margin-right: 10px;
   margin-left: 10px;
@@ -31,7 +46,7 @@ h1 {
 }
 
 #button-container {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 25px;
   text-align: center;
 }
@@ -52,7 +67,7 @@ h1 {
   padding: 0.75em;
 }
 
-@media only screen and (max-width: 747px) {
+@media only screen and (max-width: 767px) {
   #logo-icon {
     font-size: 30px;
   }
@@ -64,13 +79,17 @@ h1 {
   }
 }
 
-@media only screen and (min-width: 748px) and (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   #logo-icon {
     font-size: 36px;
   }
   .nav-wrapper {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  #main-content {
+    margin: 0 auto;
+    width: 768px;
   }
 }
 
@@ -81,5 +100,9 @@ h1 {
   .nav-wrapper {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  #main-content {
+    margin: 0 auto;
+    width: 768px;
   }
 }

@@ -40,7 +40,10 @@ imgUpload.addEventListener(
 
       reader.onload = event => {
         imgPreview.src = event.target.result
-        imgPreview.width = window.innerWidth
+        imgPreview.width =
+          window.innerWidth >= 768
+            ? window.innerWidth * 0.75
+            : window.innerWidth
         imgPreview.height = imgPreview.width * 0.75
       }
 
@@ -94,7 +97,10 @@ if ('serviceWorker' in navigator) {
  * Installability requires a service worker with a fetch event handler, and
  * if the page isn't served over HTTPS, the service worker won't load.
  */
-if (window.location.protocol === 'http:') {
+if (
+  window.location.protocol === 'http:' &&
+  window.location.host != 'localhost'
+) {
   const requireHTTPS = document.getElementById('requireHTTPS')
   const link = requireHTTPS.querySelector('a')
   link.href = window.location.href.replace('http://', 'https://')
