@@ -7,6 +7,12 @@ const progressBar = document.getElementById('progress-bar')
 const predictionResultsContainer = document.getElementById(
   'prediction-results-container'
 )
+const firstBreedName = document.getElementById('first-breed-name')
+const firstBreedProb = document.getElementById('first-breed-prob')
+const secondBreedName = document.getElementById('second-breed-name')
+const secondBreedProb = document.getElementById('second-breed-prob')
+const thirdBreedName = document.getElementById('third-breed-name')
+const thirdBreedProb = document.getElementById('third-breed-prob')
 const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 
@@ -38,7 +44,26 @@ const dealingWithPredictions = predictionResults => {
   if ('dog_detected' in predictionResults) {
     // successfully detect a dog
     if (predictionResults.dog_detected) {
-      console.log(predictionResults.message)
+      for (let i = 0; i < predictionResults.message.length; i++) {
+        let probStr =
+          (parseFloat(predictionResults.message[i].prob) * 100).toFixed(2) + '%'
+        switch (i) {
+          case 0:
+            firstBreedName.textContent = predictionResults.message[i].breed
+            firstBreedProb.textContent = probStr
+            firstBreedProb.style.width = probStr
+            break
+          case 1:
+            secondBreedName.textContent = predictionResults.message[i].breed
+            secondBreedProb.textContent = probStr
+            secondBreedProb.style.width = probStr
+            break
+          default:
+            thirdBreedName.textContent = predictionResults.message[i].breed
+            thirdBreedProb.textContent = probStr
+            thirdBreedProb.style.width = probStr
+        }
+      }
     } else {
       // no dog is detected
       console.log(predictionResults.message)
