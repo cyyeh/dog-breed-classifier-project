@@ -24,7 +24,7 @@ h1 {
   background-image: url("cover-dog.jpg");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 #cover-2 {
@@ -32,7 +32,6 @@ h1 {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-y: 22px;
 }
 
 #main-content {
