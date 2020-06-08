@@ -17,92 +17,104 @@
     <link rel="manifest" href="manifest.json">
   </head>  
   <body>
-    <nav id='nav-container'>
-      <div class="nav-wrapper teal lighten-2">
-        <a href="#" class="brand-logo">
-          <i class="material-icons" id="logo-icon">pets</i>
-          <span>狗狗品種偵測器</span>
-        </a>
-      </div>
-    </nav>
-
-    <div id='container'>
-      <div class="carousel carousel-slider center" id='project-intro-slider'>
-        <div id="cover-1" class="carousel-item white grey-text" href="#one!">
-          <h2>一秒拍照來更認識狗狗吧！</h2>
-          <p class="black-text cover-subtitle">能偵測多達133種狗狗品種</p>
+    <header>
+      <nav id='nav-container'>
+        <div class="nav-wrapper teal lighten-2">
+          <a href="#" class="brand-logo">
+            <i class="material-icons" id="logo-icon">pets</i>
+            <span>狗狗品種偵測器</span>
+          </a>
         </div>
-        <div id="cover-2" class="carousel-item white white-text lighten-3" href="#two!">
-          <h2>透過深度學習賦予強大的辨識能力</h2>
-          <p class="black-text cover-subtitle">目前辨識準確度高達86-88%</p>
-        </div>
-      </div>
+      </nav>
+    </header>
 
-      <div id='main-content'>
-        <div id='img-upload-container'>
-          <form action="#">
-            <div class="file-field input-field">
-              <div class="btn">
-                <span><i class="material-icons">camera_alt</i></span>
-                <input id="img-upload" type="file">
+    <main>
+      <div id='container'>
+        <div class="carousel carousel-slider center" id='project-intro-slider'>
+          <div id="cover-1" class="carousel-item white grey-text" href="#one!">
+            <h2>一秒拍照來更認識狗狗吧！</h2>
+            <p class="black-text cover-subtitle">能偵測多達133種狗狗品種</p>
+          </div>
+          <div id="cover-2" class="carousel-item white white-text lighten-3" href="#two!">
+            <h2>透過深度學習賦予強大的辨識能力</h2>
+            <p class="black-text cover-subtitle">目前辨識準確度高達86-88%</p>
+          </div>
+        </div>
+        
+        <div id='main-content'>
+          <div id='img-upload-container'>
+            <form action="#">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span><i class="material-icons">camera_alt</i></span>
+                  <input id="img-upload" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" accept="image/*" 
+                  capture="camera" placeholder="拍照或上傳照片"/>
+                </div>
               </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" accept="image/*" 
-                capture="camera" placeholder="拍照或上傳照片"/>
+            </form>
+    
+            <div id='img-preview-container'>
+              <img class="materialboxed" id="img-preview"></img>
+            </div>
+  
+            <div id='button-container'>
+              <button id="predict-button" class="btn waves-effect waves-light disabled btn-large" type="submit" name="action">開始偵測
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+  
+            <div class="progress hidden" id="progress-bar">
+                <div class="indeterminate"></div>
+            </div>
+  
+            <div id="prediction-results-container" class="hidden">
+              <p class="predictiion-results-headline">預測結果</p>
+              <hr/>
+              <p id="no-results-found"></p>
+              <div id="prediction-contents">
+                <p id="first-breed-name" class="dog-breed-name"></p>
+                <div class="w3-grey w3-round w3-large">
+                  <div id="first-breed-prob" class="w3-container w3-green w3-round"></div>
+                </div><br>
+                <p id="second-breed-name" class="dog-breed-name" id="second-breed"></p>
+                <div class="w3-grey w3-round w3-large">
+                  <div id="second-breed-prob" class="w3-container w3-green w3-round"></div>
+                </div><br>
+                <p id="third-breed-name" class="dog-breed-name"></p>
+                <div class="w3-grey w3-round w3-large">
+                  <div id="third-breed-prob" class="w3-container w3-green w3-round"></div>
+                </div><br>
               </div>
             </div>
-          </form>
-  
-          <div id='img-preview-container'>
-            <img class="materialboxed" id="img-preview"></img>
           </div>
-
-          <div id='button-container'>
-            <button id="predict-button" class="btn waves-effect waves-light disabled btn-large" type="submit" name="action">開始偵測
-              <i class="material-icons right">send</i>
+          <div id='predict-container'>
+          </div>
+  
+          <p id="requireHTTPS" class="hidden">
+            <b>STOP!</b> This page <b>must</b> be served over HTTPS.
+            Please <a>reload this page via HTTPS</a>.
+          </p>
+          
+          <!-- Install button, hidden by default -->
+          <div id="install-container" class="hidden">
+            <button id="but-install" type="button">
+              Install
             </button>
           </div>
-
-          <div class="progress hidden" id="progress-bar">
-              <div class="indeterminate"></div>
-          </div>
-
-          <div id="prediction-results-container" class="hidden">
-            <p class="predictiion-results-headline">預測結果</p>
-            <hr/>
-            <p id="no-results-found"></p>
-            <div id="prediction-contents">
-              <p id="first-breed-name" class="dog-breed-name"></p>
-              <div class="w3-grey w3-round w3-large">
-                <div id="first-breed-prob" class="w3-container w3-green w3-round"></div>
-              </div><br>
-              <p id="second-breed-name" class="dog-breed-name" id="second-breed"></p>
-              <div class="w3-grey w3-round w3-large">
-                <div id="second-breed-prob" class="w3-container w3-green w3-round"></div>
-              </div><br>
-              <p id="third-breed-name" class="dog-breed-name"></p>
-              <div class="w3-grey w3-round w3-large">
-                <div id="third-breed-prob" class="w3-container w3-green w3-round"></div>
-              </div><br>
-            </div>
-          </div>
-        </div>
-        <div id='predict-container'>
-        </div>
-
-        <p id="requireHTTPS" class="hidden">
-          <b>STOP!</b> This page <b>must</b> be served over HTTPS.
-          Please <a>reload this page via HTTPS</a>.
-        </p>
-        
-        <!-- Install button, hidden by default -->
-        <div id="install-container" class="hidden">
-          <button id="but-install" type="button">
-            Install
-          </button>
         </div>
       </div>
-    </div>
+    </main>
+
+    <footer class="page-footer teal lighten-2">
+      <div class="footer-copyright">
+        <div class="container center">
+        © <span id="copyright-year"></span> <a class="grey-text text-lighten-3" href="https://linkedin.com/in/cyyeh">ChihYu <i class="material-icons" id="footer-link-icon">link</i></a>
+        </div>
+      </div>
+    </footer>
 
     <!-- import the webpage's javascript file -->
     <script src="script.js" defer></script>

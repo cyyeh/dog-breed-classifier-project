@@ -15,6 +15,7 @@ const secondBreedName = document.getElementById('second-breed-name')
 const secondBreedProb = document.getElementById('second-breed-prob')
 const thirdBreedName = document.getElementById('third-breed-name')
 const thirdBreedProb = document.getElementById('third-breed-prob')
+const copyrightYear = document.getElementById('copyright-year')
 const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 
@@ -244,6 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fullWidth: true,
     indicators: true
   })
+  copyrightYear.textContent = new Date().getFullYear()
 })
 
 window.addEventListener('beforeinstallprompt', event => {
