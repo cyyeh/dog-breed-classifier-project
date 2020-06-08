@@ -234,9 +234,12 @@ const dealingWithPredictions = predictionResults => {
   }
 }
 
+window.onload = () => {
+  M.AutoInit()
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.getElementById('project-intro-slider')
-  M.AutoInit()
   M.Carousel.init(carousel, {
     fullWidth: true,
     indicators: true
