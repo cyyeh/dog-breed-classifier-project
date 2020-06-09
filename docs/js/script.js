@@ -28,12 +28,9 @@ const predictionAPIEndpoint =
 let imgBase64 = ''
 
 // initialization
-window.onload = () => {
-  M.AutoInit()
-}
-
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.getElementById('project-intro-slider')
+  M.AutoInit()
   M.Carousel.init(carousel, {
     fullWidth: true,
     indicators: true
@@ -177,12 +174,16 @@ imgUpload.addEventListener(
 )
 
 // predict button click event
-predictButton.addEventListener('click', () => {
-  predictionResultsContainer.classList.toggle('hidden', true)
-  predictionContents.classList.toggle('hidden', false)
-  noResultsFound.classList.toggle('hidden', true)
-  predictDogBreeds(imgBase64)
-})
+predictButton.addEventListener(
+  'click',
+  () => {
+    predictionResultsContainer.classList.toggle('hidden', true)
+    predictionContents.classList.toggle('hidden', false)
+    noResultsFound.classList.toggle('hidden', true)
+    predictDogBreeds(imgBase64)
+  },
+  false
+)
 
 /* 
 service worker things
