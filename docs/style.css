@@ -120,6 +120,10 @@ h1 {
   margin-inline-end: 0px;
 }
 
+#predict-button {
+  font-size: 18px;
+}
+
 #progress-notes {
   color: darkorange;
   font-size: 16px;
