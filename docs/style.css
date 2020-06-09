@@ -80,6 +80,10 @@ h1 {
   display: none !important;
 }
 
+#logo-icon {
+  margin-right: 5px;
+}
+
 #cover-1 {
   background-image: url("cover-dog.jpg");
   background-position: center center;
@@ -166,7 +170,8 @@ h1 {
     text-align: center;
   }
   .brand-logo {
-    font-size: 16px !important;
+    font-size: 18px !important;
+    width: 170px;
   }
   #cover-1 {
     background-size: cover;
@@ -189,6 +194,9 @@ h1 {
   .nav-wrapper {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  .brand-logo {
+    font-size: 24px !important;
   }
   #main-content,
   #nav-container,
@@ -217,6 +225,9 @@ h1 {
   .nav-wrapper {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  .brand-logo {
+    font-size: 28px !important;
   }
   #main-content,
   #nav-container,
