@@ -1,6 +1,7 @@
 'use strict'
 
 import { dogBreeds } from './dog-breeds.js'
+import './smoothscroll.js'
 
 const imgUpload = document.getElementById('img-upload')
 const imgPreview = document.getElementById('img-preview')
