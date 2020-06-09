@@ -30,6 +30,8 @@
   - GCP
     - Cloud Storage
     - Cloud Run
+- deep learning
+  - PyTorch
 
 ## Setup
 
@@ -58,7 +60,6 @@ Below commands are already written in `Makefile`, please checkout and change any
   - `make submit`
 - deploy a docker image in Google Container Registry to Google Cloud Run:
   - `make deploy`
-
 
 ## Todos
 
