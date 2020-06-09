@@ -1,7 +1,7 @@
 {
-  "short_name": "狗狗品種偵測器",
-  "name": "狗狗品種偵測器",
-  "description": "一秒拍照來更認識狗狗吧！",
+  "short_name": "狗狗百科",
+  "name": "狗狗百科",
+  "description": "能夠偵測多達133種狗狗",
   "icons": [
     {
       "src": "https://via.placeholder.com/48",
