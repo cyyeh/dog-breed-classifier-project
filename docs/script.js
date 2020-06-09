@@ -132,10 +132,6 @@ const dealingWithPredictions = predictionResults => {
       noResultsFound.classList.toggle('hidden', false)
       noResultsFound.textContent = '嗯......狗狗偵測器沒有偵測到狗狗喔！'
     }
-  } else if ('detail' in predictionResults) {
-    predictionContents.classList.toggle('hidden', true)
-    noResultsFound.classList.toggle('hidden', false)
-    noResultsFound.textContent = '發生異常，請稍後再試！'
   } else {
     predictionContents.classList.toggle('hidden', true)
     noResultsFound.classList.toggle('hidden', false)
