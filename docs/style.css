@@ -1,3 +1,57 @@
+/*
+animations
+*/
+:root {
+  --first-breed-prob: 50%;
+  --second-breed-prob: 50%;
+  --third-breed-prob: 50%;
+}
+
+@keyframes first-breed-prob-animation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--first-breed-prob);
+  }
+}
+
+#first-breed-prob {
+  animation-name: first-breed-prob-animation;
+  animation-duration: 2s;
+}
+
+@keyframes second-breed-prob-animation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--second-breed-prob);
+  }
+}
+
+#second-breed-prob {
+  animation-name: second-breed-prob-animation;
+  animation-duration: 2s;
+}
+
+@keyframes third-breed-pro-animation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--third-breed-prob);
+  }
+}
+
+#third-breed-prob {
+  animation-name: third-breed-prob-animation;
+  animation-duration: 2s;
+}
+
+/*
+static ui styles
+*/
 body {
   font-family: Helvetica, Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";

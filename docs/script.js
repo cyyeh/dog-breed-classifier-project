@@ -70,7 +70,8 @@ const dealingWithPredictions = predictionResults => {
     breedNameDOM,
     breedProbDOM,
     idx,
-    probStr
+    probStr,
+    animationKeyName
   ) {
     breedNameDOM.innerHTML =
       dogBreeds[predictionResults.message[idx].breed].chinese +
@@ -82,6 +83,7 @@ const dealingWithPredictions = predictionResults => {
     breedNameDOM.href = dogBreeds[predictionResults.message[idx].breed].link
     breedProbDOM.textContent = probStr
     breedProbDOM.style.width = probStr
+    document.documentElement.style.setProperty(animationKeyName, probStr)
   }
 
   predictionResultsContainer.classList.toggle('hidden', false)
@@ -97,7 +99,8 @@ const dealingWithPredictions = predictionResults => {
               firstBreedName,
               firstBreedProb,
               i,
-              probStr
+              probStr,
+              '--first-breed-prob'
             )
             break
           case 1:
@@ -105,7 +108,8 @@ const dealingWithPredictions = predictionResults => {
               secondBreedName,
               secondBreedProb,
               i,
-              probStr
+              probStr,
+              '--second-breed-prob'
             )
             break
           default:
@@ -113,7 +117,8 @@ const dealingWithPredictions = predictionResults => {
               thirdBreedName,
               thirdBreedProb,
               i,
-              probStr
+              probStr,
+              '--third-breed-prob'
             )
         }
       }
