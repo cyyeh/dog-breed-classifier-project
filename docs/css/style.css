@@ -192,7 +192,7 @@ h1 {
     background-size: cover;
   }
   #cover-2 {
-    background-size: cover;
+    background-size: contain;
   }
   #cover-3 {
     background-size: cover;
@@ -226,7 +226,7 @@ h1 {
     background-size: 768px;
   }
   #cover-2 {
-    background-size: 768px;
+    background-size: contain;
   }
   #cover-3 {
     background-size: 768px;
@@ -260,7 +260,7 @@ h1 {
     background-size: 768px;
   }
   #cover-2 {
-    background-size: 768px;
+    background-size: contain;
   }
   #cover-3 {
     background-size: 768px;
