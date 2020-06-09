@@ -2,8 +2,6 @@
 
 import { dogBreeds } from './dog-breeds.js'
 
-const divInstall = document.getElementById('install-container')
-const butInstall = document.getElementById('but-install')
 const imgUpload = document.getElementById('img-upload')
 const imgPreview = document.getElementById('img-preview')
 const predictButton = document.getElementById('predict-button')
@@ -20,6 +18,9 @@ const secondBreedProb = document.getElementById('second-breed-prob')
 const thirdBreedName = document.getElementById('third-breed-name')
 const thirdBreedProb = document.getElementById('third-breed-prob')
 const copyrightYear = document.getElementById('copyright-year')
+
+const divInstall = document.getElementById('install-container')
+const butInstall = document.getElementById('but-install')
 const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 
@@ -62,6 +63,11 @@ const predictDogBreeds = async imgBase64 => {
   const predictionResults = await apiResponse.json()
   progressBar.classList.toggle('hidden', true)
   dealingWithPredictions(predictionResults)
+  window.scrollTo({
+    left: 0,
+    top: document.body.scrollHeight,
+    behavior: 'smooth'
+  })
 }
 
 // callback for dog classification api
