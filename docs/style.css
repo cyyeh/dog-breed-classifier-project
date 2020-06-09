@@ -49,10 +49,6 @@ animations
   animation-duration: 2s;
 }
 
-* {
-  -webkit-overflow-scrolling: touch;
-}
-
 /*
 static ui styles
 */

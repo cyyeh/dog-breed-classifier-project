@@ -63,11 +63,14 @@ const predictDogBreeds = async imgBase64 => {
   const predictionResults = await apiResponse.json()
   progressBar.classList.toggle('hidden', true)
   dealingWithPredictions(predictionResults)
-  window.scrollTo({
-    left: 0,
-    top: document.body.scrollHeight,
-    behavior: 'smooth'
-  })
+  setTimeout(
+    window.scrollTo({
+      left: 0,
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    }),
+    100
+  )
 }
 
 // callback for dog classification api
