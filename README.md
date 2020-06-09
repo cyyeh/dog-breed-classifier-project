@@ -18,6 +18,19 @@
 - api: backend
 - docs: frontend
 
+## Used Tools/Technologies
+
+- frontend
+  - HTML/CSS/JavaScript
+  - Materialize
+- backend
+  - Python
+    - FastAPI
+  - Docker
+  - GCP
+    - Cloud Storage
+    - Cloud Run
+
 ## Setup
 
 ### Frontend
