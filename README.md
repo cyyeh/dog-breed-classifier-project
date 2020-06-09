@@ -63,4 +63,4 @@ Below commands are already written in `Makefile`, please checkout and change any
 ## Todos
 
 - [ ] support English
-- [ ] suppor PWA
+- [ ] support PWA
