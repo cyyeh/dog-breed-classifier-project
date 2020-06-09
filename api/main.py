@@ -25,7 +25,8 @@ app = FastAPI()
 # allow all origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
+    allow_origins=['http://localhost:8080',
+                   'https://cyyeh.github.io/dog-breed-classifier'],
     allow_credentials=False,
     allow_methods=['*'],
     allow_headers=['*'],
