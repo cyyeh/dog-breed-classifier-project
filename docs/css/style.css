@@ -85,13 +85,19 @@ h1 {
 }
 
 #cover-1 {
-  background-image: url("cover-dog.jpg");
+  background-image: url("../images/cover-dog.jpg");
   background-position: center center;
   background-repeat: no-repeat;
 }
 
 #cover-2 {
-  background-image: url("cover-ai.jpg");
+  background-image: url("../images/cover-wiki.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#cover-3 {
+  background-image: url("../images/cover-ai.jpg");
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -188,6 +194,9 @@ h1 {
   #cover-2 {
     background-size: cover;
   }
+  #cover-3 {
+    background-size: cover;
+  }
   .predictiion-results-headline {
     font-size: 20px;
   }
@@ -219,6 +228,9 @@ h1 {
   #cover-2 {
     background-size: 768px;
   }
+  #cover-3 {
+    background-size: 768px;
+  }
   .predictiion-results-headline {
     font-size: 20px;
   }
@@ -248,6 +260,9 @@ h1 {
     background-size: 768px;
   }
   #cover-2 {
+    background-size: 768px;
+  }
+  #cover-3 {
     background-size: 768px;
   }
   .predictiion-results-headline {
