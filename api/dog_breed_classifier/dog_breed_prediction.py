@@ -2,8 +2,6 @@ from PIL import ImageFile
 from PIL import Image
 import numpy as np
 import torchvision.transforms as transforms
-import torchvision.models as models
-import torch.nn as nn
 import torch
 
 CLASS_NAMES = [
@@ -74,7 +72,7 @@ class DogBreedPrediction(object):
 
         # the following code is to get top-3 dog breeds with respective probability
         # to get probability distribution over all classes
-        softmax = nn.Softmax(dim=1)
+        softmax = torch.nn.Softmax(dim=1)
         softmax_output = softmax(output.data)
         top3_pred_values, top3_pred_indices = torch.topk(softmax_output, 3)
         top3_pred_prob = np.squeeze(top3_pred_values).numpy()

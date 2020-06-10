@@ -1,5 +1,4 @@
 import re
-import os
 import base64
 from io import BytesIO
 
@@ -8,7 +7,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from dog_breed_classifier import DogBreedPrediction
-from utility import download_blob
 
 # keep model as global variable so we don't have to reload
 # it in case of warm invocations
