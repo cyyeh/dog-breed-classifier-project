@@ -9,7 +9,7 @@
   - input: an image having RGB channels with Base64 encoding
   - output: boolean
 - dog classification
-  - model: MobileNet V2 pretrained model withe finetuning
+  - model: MobileNet V2 pretrained model with finetuning
   - input: an image having RGB channels with Base64 encoding
   - output: top-3 prediction results(dog breed names and prediction probabilities)
 
