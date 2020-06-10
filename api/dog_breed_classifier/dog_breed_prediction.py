@@ -1,10 +1,10 @@
-import torch
-import torch.nn as nn
-import torchvision.models as models
-import torchvision.transforms as transforms
-import numpy as np
-from PIL import Image
 from PIL import ImageFile
+from PIL import Image
+import numpy as np
+import torchvision.transforms as transforms
+import torchvision.models as models
+import torch.nn as nn
+import torch
 
 CLASS_NAMES = [
     'Affenpinscher', 'Afghan hound', 'Airedale terrier', 'Akita', 'Alaskan malamute', 'American eskimo dog',
@@ -34,12 +34,14 @@ CLASS_NAMES = [
 
 
 class DogBreedPrediction(object):
-    def __init__(self, model_file):
+    def __init__(self):
         super(DogBreedPrediction, self).__init__()
         # MobileNet v2 pretrained model
-        self._dog_detector = models.mobilenet_v2(pretrained=True)
+        self._dog_detector = torch.load(
+            'dog_breed_classifier/dog_detection_model.pt')
         # MobileNet v2 fine-tuned model
-        self._dog_breed_classifier = torch.load(model_file)
+        self._dog_breed_classifier = torch.load(
+            'dog_breed_classifier/dog_classification_model.pt')
         # both models use the same preprocess step
         self._preprocess = transforms.Compose([
             transforms.Resize(256),
