@@ -126,8 +126,8 @@ h1 {
   margin-inline-end: 0px;
 }
 
-#predict-button {
-  font-size: 18px;
+#prediction-results-container {
+  margin-top: 50px;
 }
 
 #progress-notes {

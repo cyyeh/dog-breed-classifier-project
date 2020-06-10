@@ -5,7 +5,6 @@ import './smoothscroll.js'
 
 const imgUpload = document.getElementById('img-upload')
 const imgPreview = document.getElementById('img-preview')
-const predictButton = document.getElementById('predict-button')
 const progressBar = document.getElementById('progress-bar')
 const predictionResultsContainer = document.getElementById(
   'prediction-results-container'
@@ -25,8 +24,6 @@ const butInstall = document.getElementById('but-install')
 const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 
-let imgBase64 = ''
-
 // initialization
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.getElementById('project-intro-slider')
@@ -41,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // cal predict dog classification api
 const predictDogBreeds = async imgBase64 => {
   progressBar.classList.toggle('hidden', false)
+  progressBar.scrollIntoView({
+    behavior: 'smooth'
+  })
 
   const apiResponse = await fetch(predictionAPIEndpoint, {
     method: 'POST',
@@ -159,28 +159,20 @@ imgUpload.addEventListener(
       }
 
       reader.onloadend = () => {
-        imgBase64 = reader.result
+        const imgBase64 = reader.result
+
+        // start predicting dog breeds
+        predictionResultsContainer.classList.toggle('hidden', true)
+        predictionContents.classList.toggle('hidden', false)
+        noResultsFound.classList.toggle('hidden', true)
+        predictDogBreeds(imgBase64)
       }
 
       reader.readAsDataURL(selectedFile) // convert to base64 string
-      predictButton.classList.toggle('disabled', false)
     } else {
       imgPreview.src = null
       imgPreview.height = 0
-      predictButton.classList.toggle('disabled', true)
     }
-  },
-  false
-)
-
-// predict button click event
-predictButton.addEventListener(
-  'click',
-  () => {
-    predictionResultsContainer.classList.toggle('hidden', true)
-    predictionContents.classList.toggle('hidden', false)
-    noResultsFound.classList.toggle('hidden', true)
-    predictDogBreeds(imgBase64)
   },
   false
 )
