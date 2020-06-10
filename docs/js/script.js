@@ -17,10 +17,13 @@ const noResultsFound = document.getElementById('no-results-found')
 const predictionContents = document.getElementById('prediction-contents')
 const firstBreedName = document.getElementById('first-breed-name')
 const firstBreedProb = document.getElementById('first-breed-prob')
+const firstSpeakerButton = document.getElementById('first-speaker-button')
 const secondBreedName = document.getElementById('second-breed-name')
 const secondBreedProb = document.getElementById('second-breed-prob')
+const secondSpeakerButton = document.getElementById('second-speaker-button')
 const thirdBreedName = document.getElementById('third-breed-name')
 const thirdBreedProb = document.getElementById('third-breed-prob')
+const thirdSpeakerButton = document.getElementById('third-speaker-button')
 const copyrightYear = document.getElementById('copyright-year')
 
 const divInstall = document.getElementById('install-container')
@@ -44,6 +47,14 @@ const toDataUrl = (url, callback) => {
   xhr.responseType = 'blob'
   xhr.send()
 }
+const speak = dogBreedName => {
+  console.log(dogBreedName)
+  speechSynthesis.speak(new SpeechSynthesisUtterance(dogBreedName))
+}
+
+let firstBreed = ''
+let secondBreed = ''
+let thirdBreed = ''
 
 // initialization
 document.addEventListener('DOMContentLoaded', function() {
@@ -137,6 +148,7 @@ const dealingWithPredictions = predictionResults => {
               probStr,
               '--first-breed-prob'
             )
+            firstBreed = predictionResults.message[i].breed
             break
           case 1:
             updateDogPredictionContent(
@@ -146,6 +158,7 @@ const dealingWithPredictions = predictionResults => {
               probStr,
               '--second-breed-prob'
             )
+            secondBreed = predictionResults.message[i].breed
             break
           default:
             updateDogPredictionContent(
@@ -155,6 +168,7 @@ const dealingWithPredictions = predictionResults => {
               probStr,
               '--third-breed-prob'
             )
+            thirdBreed = predictionResults.message[i].breed
         }
       }
     } else {
@@ -216,6 +230,11 @@ sampleBreedPredict.addEventListener('click', event => {
     predictDogBreeds(imgBase64)
   })
 })
+
+// click speakers to pronounce dog breed names
+firstSpeakerButton.addEventListener('click', event => speak(firstBreed))
+secondSpeakerButton.addEventListener('click', event => speak(secondBreed))
+thirdSpeakerButton.addEventListener('click', event => speak(thirdBreed))
 
 /* 
 service worker things

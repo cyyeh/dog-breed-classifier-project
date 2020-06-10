@@ -119,7 +119,7 @@ h1 {
 
 .dog-breed-name {
   color: #26a69a !important;
-  display: block;
+  display: inline-block;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
@@ -190,6 +190,12 @@ h1 {
 
 #footer-link-icon {
   font-size: 18px;
+}
+
+.speaker-button {
+  float: right;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 767px) {
