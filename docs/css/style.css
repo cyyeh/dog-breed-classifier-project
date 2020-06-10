@@ -94,25 +94,25 @@ h1 {
 }
 
 #cover-1 {
-  background-image: url("../images/cover-dog.jpg");
+  background-image: url("../images/cover-dog.webp");
   background-position: center center;
   background-repeat: no-repeat;
 }
 
 #cover-2 {
-  background-image: url("../images/cover-wiki.png");
+  background-image: url("../images/cover-wiki.webp");
   background-position: center center;
   background-repeat: no-repeat;
 }
 
 #cover-3 {
-  background-image: url("../images/cover-voice.png");
+  background-image: url("../images/cover-voice.webp");
   background-position: center center;
   background-repeat: no-repeat;
 }
 
 #cover-4 {
-  background-image: url("../images/cover-ai.jpg");
+  background-image: url("../images/cover-ai.webp");
   background-position: center center;
   background-repeat: no-repeat;
 }
