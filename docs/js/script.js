@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // generating a random sample dog breed image
   const idx = getRandomInt(totalSampleImageSize)
-  sampleBreedImg.src = '../images/samples/' + idx + '.jpg'
+  sampleBreedImg.src = 'images/samples/' + idx + '.jpg'
   sampleBreedName.textContent = dogBreedSamples[idx].breed
 
   // copyright year
