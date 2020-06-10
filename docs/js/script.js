@@ -1,8 +1,12 @@
 'use strict'
 
 import { dogBreeds } from './dog-breeds.js'
+import { dogBreedSamples } from './dog-breed-samples.js'
 import './smoothscroll.js'
 
+const sampleBreedImg = document.getElementById('sample-breed-img')
+const sampleBreedName = document.getElementById('sample-breed-name')
+const sampleBreedPredict = document.getElementById('sample-breed-predict')
 const imgUpload = document.getElementById('img-upload')
 const imgPreview = document.getElementById('img-preview')
 const progressBar = document.getElementById('progress-bar')
@@ -23,20 +27,49 @@ const divInstall = document.getElementById('install-container')
 const butInstall = document.getElementById('but-install')
 const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
+const totalSampleImageSize = 6
+
+// utility functions
+const getRandomInt = max => Math.floor(Math.random() * Math.floor(max))
+const toDataUrl = (url, callback) => {
+  var xhr = new XMLHttpRequest()
+  xhr.onload = function() {
+    var reader = new FileReader()
+    reader.onloadend = function() {
+      callback(reader.result)
+    }
+    reader.readAsDataURL(xhr.response)
+  }
+  xhr.open('GET', url)
+  xhr.responseType = 'blob'
+  xhr.send()
+}
 
 // initialization
 document.addEventListener('DOMContentLoaded', function() {
+  // carousel initialization
   const carousel = document.getElementById('project-intro-slider')
   M.AutoInit()
   M.Carousel.init(carousel, {
     fullWidth: true,
     indicators: true
   })
+
+  // generating a random sample dog breed image
+  const idx = getRandomInt(totalSampleImageSize)
+  sampleBreedImg.src = '../images/samples/' + idx + '.jpg'
+  sampleBreedName.textContent = dogBreedSamples[idx].breed
+
+  // copyright year
   copyrightYear.textContent = new Date().getFullYear()
 })
 
 // cal predict dog classification api
 const predictDogBreeds = async imgBase64 => {
+  predictionResultsContainer.classList.toggle('hidden', true)
+  predictionContents.classList.toggle('hidden', false)
+  noResultsFound.classList.toggle('hidden', true)
+
   progressBar.classList.toggle('hidden', false)
   progressBar.scrollIntoView({
     behavior: 'smooth'
@@ -162,9 +195,6 @@ imgUpload.addEventListener(
         const imgBase64 = reader.result
 
         // start predicting dog breeds
-        predictionResultsContainer.classList.toggle('hidden', true)
-        predictionContents.classList.toggle('hidden', false)
-        noResultsFound.classList.toggle('hidden', true)
         predictDogBreeds(imgBase64)
       }
 
@@ -176,6 +206,16 @@ imgUpload.addEventListener(
   },
   false
 )
+
+// click sample breed predict button
+sampleBreedPredict.addEventListener('click', event => {
+  // conver image to base64 first, then predict dog breeds
+  toDataUrl(sampleBreedImg.src, function(imgBase64) {
+    // start predicting dog breeds
+    imgPreview.height = 0
+    predictDogBreeds(imgBase64)
+  })
+})
 
 /* 
 service worker things

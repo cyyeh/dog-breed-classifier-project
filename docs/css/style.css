@@ -126,6 +126,13 @@ h1 {
   margin-inline-end: 0px;
 }
 
+#try-text {
+  font-size: 20px;
+  text-align: center;
+  margin-top: -10px;
+  font-weight: bold;
+}
+
 #prediction-results-container {
   margin-top: 50px;
 }
@@ -139,6 +146,10 @@ h1 {
   margin-top: 20px;
   margin-bottom: 25px;
   text-align: center;
+}
+
+.predictiion-results-headline {
+  font-weight: bold;
 }
 
 #prediction-contents {
