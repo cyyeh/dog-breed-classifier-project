@@ -49,7 +49,6 @@ const toDataUrl = (url, callback) => {
   xhr.send()
 }
 const speak = dogBreedName => {
-  console.log(dogBreedName)
   speechSynthesis.speak(new SpeechSynthesisUtterance(dogBreedName))
 }
 
