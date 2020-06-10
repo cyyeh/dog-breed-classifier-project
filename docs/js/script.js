@@ -67,11 +67,34 @@ const toDataUrl = (url, callback) => {
   xhr.responseType = 'blob'
   xhr.send()
 }
+// https://gist.github.com/Eotones/d67be7262856a79a77abeeccef455ebf?fbclid=IwAR0o93EpbKoFy_UGG4EfSmdtT6TqyiYrFOLmz7IyVUvPbFiPhD6nJXvzObk
 const synth = window.speechSynthesis
 const speak = (lang, dogBreedNameEn, dogBreedNameZh) => {
   let u = new SpeechSynthesisUtterance()
   if (lang === '中') {
-    u.lang = 'zh-TW'
+    let voices = synth.getVoices()
+
+    for (let index = 0; index < voices.length; index++) {
+      /*
+      "Google US English"
+      "Google 日本語"
+      "Google 普通话（中国大陆）"
+      "Google 粤語（香港）"
+      "Google 國語（臺灣）"
+      */
+
+      //console.log(this.voices[index].name);
+      if (voices[index].name == 'Google 國語（臺灣）') {
+        //u.lang = 'zh-TW'; //這句絕對不要用
+        //要使用Google中文語音的話請不要再用u.lang指定語言
+        //不然可能又會被切回系統預設的中文語音
+        u.voice = voices[index]
+        break
+      } else {
+        //如果沒有則使用預設中文語音
+        u.lang = 'zh-TW'
+      }
+    }
     u.text = dogBreedNameZh
   } else {
     u.text = dogBreedNameEn
