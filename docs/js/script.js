@@ -52,10 +52,20 @@ const speak = dogBreedName => {
   console.log(dogBreedName)
   speechSynthesis.speak(new SpeechSynthesisUtterance(dogBreedName))
 }
+
+let idx = 132
 const generateRandomDogBreed = () => {
-  const idx = getRandomInt(totalSampleImageSize)
+  //const idx = getRandomInt(totalSampleImageSize)
+  if (idx !== 132) {
+    idx = (idx - 1) % totalSampleImageSize
+  }
+
   sampleBreedImg.src = 'images/samples/' + idx + '.jpg'
   sampleBreedName.textContent = dogBreedSamples[idx].breed
+
+  if (idx === 132) {
+    idx -= 1
+  }
 }
 
 let firstBreed = ''
