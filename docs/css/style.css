@@ -124,6 +124,7 @@ h1 {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  flex: 1;
 }
 
 #try-text {
@@ -192,10 +193,18 @@ h1 {
   font-size: 18px;
 }
 
+.breed-container {
+  display: flex;
+}
+
 .speaker-button {
-  float: right;
   margin-top: 20px;
   cursor: pointer;
+}
+
+.dog-prob-progress-bar,
+.dog-prob-progress-num {
+  height: 27.34px;
 }
 
 @media only screen and (max-width: 767px) {
