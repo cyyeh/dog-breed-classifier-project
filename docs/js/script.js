@@ -123,13 +123,11 @@ const dealingWithPredictions = predictionResults => {
     probStr,
     animationKeyName
   ) {
-    breedNameDOM.innerHTML =
+    breedNameDOM.textContent =
       dogBreeds[predictionResults.message[idx].breed].chinese +
       '(' +
       predictionResults.message[idx].breed +
-      ')' +
-      ' ' +
-      '<i class="material-icons" style="color: darkgreen;">link</i>'
+      ')'
     breedNameDOM.href = dogBreeds[predictionResults.message[idx].breed].link
     breedProbDOM.textContent = probStr
     breedProbDOM.style.width = probStr
