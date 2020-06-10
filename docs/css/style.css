@@ -143,9 +143,9 @@ h1 {
 }
 
 #try-text {
-  font-size: 20px;
   text-align: center;
   margin-top: -10px;
+  margin-bottom: 15px;
   font-weight: bold;
 }
 
@@ -244,6 +244,9 @@ h1 {
   .brand-logo {
     font-size: 18px !important;
   }
+  #try-text {
+    font-size: 20px;
+  }
   #cover-1 {
     background-size: cover;
   }
@@ -292,6 +295,9 @@ h1 {
   .brand-logo {
     font-size: 24px !important;
   }
+  #try-text {
+    font-size: 24px;
+  }
   #main-content,
   #nav-container,
   footer {
@@ -311,7 +317,7 @@ h1 {
     background-size: 768px;
   }
   .predictiion-results-headline {
-    font-size: 20px;
+    font-size: 24px;
   }
   .dog-breed-name {
     font-size: 18px;
@@ -336,6 +342,9 @@ h1 {
   .brand-logo {
     font-size: 28px !important;
   }
+  #try-text {
+    font-size: 28px;
+  }
   #main-content,
   #nav-container,
   footer {
@@ -355,7 +364,7 @@ h1 {
     background-size: 768px;
   }
   .predictiion-results-headline {
-    font-size: 20px;
+    font-size: 28px;
   }
   .dog-breed-name {
     font-size: 18px;

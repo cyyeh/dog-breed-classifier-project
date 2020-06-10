@@ -224,6 +224,7 @@ imgUpload.addEventListener(
 
 // click card image to randomly generate a dog image
 sampleDogBreed.addEventListener('click', event => {
+  imgPreview.height = 0
   predictionResultsContainer.classList.toggle('hidden', true)
   predictionContents.classList.toggle('hidden', false)
   noResultsFound.classList.toggle('hidden', true)
