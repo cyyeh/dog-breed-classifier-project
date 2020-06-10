@@ -4,6 +4,7 @@ import { dogBreeds } from './dog-breeds.js'
 import { dogBreedSamples } from './dog-breed-samples.js'
 import './smoothscroll.js'
 
+const sampleDogBreed = document.getElementById('sample-dog-breed')
 const sampleBreedImg = document.getElementById('sample-breed-img')
 const sampleBreedName = document.getElementById('sample-breed-name')
 const sampleBreedPredict = document.getElementById('sample-breed-predict')
@@ -215,6 +216,14 @@ imgUpload.addEventListener(
   },
   false
 )
+
+// click card image to randomly generate a dog image
+sampleDogBreed.addEventListener('click', event => {
+  // generating a random sample dog breed image
+  const idx = getRandomInt(totalSampleImageSize)
+  sampleBreedImg.src = 'images/samples/' + idx + '.jpg'
+  sampleBreedName.textContent = dogBreedSamples[idx].breed
+})
 
 // click sample breed predict button
 sampleBreedPredict.addEventListener('click', event => {
