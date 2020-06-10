@@ -88,6 +88,11 @@ h1 {
   padding: 0px !important;
 }
 
+#first-try-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 #cover-1 {
   background-image: url("../images/cover-dog.jpg");
   background-position: center center;
