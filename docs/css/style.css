@@ -84,6 +84,10 @@ h1 {
   margin-right: 5px;
 }
 
+.customized-col {
+  padding: 0px !important;
+}
+
 #cover-1 {
   background-image: url("../images/cover-dog.jpg");
   background-position: center center;
@@ -146,6 +150,14 @@ h1 {
 
 #sample-breed-predict {
   font-size: 16px;
+}
+
+.card {
+  margin: 0 auto;
+}
+
+#sample-breed-img {
+  object-fit: cover;
 }
 
 #prediction-results-container {
@@ -245,6 +257,13 @@ h1 {
   .dog-breed-name {
     font-size: 18px;
   }
+  .card {
+    width: 300px;
+  }
+  #sample-breed-img {
+    width: 300px;
+    height: 225px;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -282,6 +301,13 @@ h1 {
   .dog-breed-name {
     font-size: 18px;
   }
+  .card {
+    width: 600px;
+  }
+  #sample-breed-img {
+    width: 600px;
+    height: 450px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -318,5 +344,12 @@ h1 {
   }
   .dog-breed-name {
     font-size: 18px;
+  }
+  .card {
+    width: 600px;
+  }
+  #sample-breed-img {
+    width: 600px;
+    height: 450px;
   }
 }
