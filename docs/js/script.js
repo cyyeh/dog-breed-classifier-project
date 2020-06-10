@@ -71,10 +71,10 @@ const synth = window.speechSynthesis
 const speak = (lang, dogBreedNameEn, dogBreedNameZh) => {
   let u = new SpeechSynthesisUtterance()
   if (lang === '中') {
-    u.text = dogBreedNameEn
-  } else {
     u.lang = 'zh-TW'
     u.text = dogBreedNameZh
+  } else {
+    u.text = dogBreedNameEn
   }
   synth.speak(u)
 }
@@ -159,6 +159,7 @@ translationButton.addEventListener('click', event => {
     translationButton.textContent,
     dogBreedSamples[sampleBreedIdx].breed
   )
+
   firstBreedName.textContent = getDogBreedName(
     translationButton.textContent,
     firstBreed.en,
