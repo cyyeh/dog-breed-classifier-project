@@ -16,7 +16,7 @@ BASE64_IMAGE_PATTERN = '^data:image/.+;base64,'
 
 app = FastAPI()
 
-# allow all origins
+# cors setting
 app.add_middleware(
     CORSMiddleware,
     allow_origins=['http://localhost:8080',
