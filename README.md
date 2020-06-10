@@ -28,10 +28,13 @@
     - FastAPI
   - Docker
   - GCP
-    - Cloud Storage
     - Cloud Run
 - deep learning
   - PyTorch
+
+## Deep Learning Under the Hood in This Project
+
+You can check [this repo](https://github.com/cyyeh/ml-engineering-ndegree/tree/master/projects/capstone-project) for further details, and this project is orginally from my Udacity Machine Learning Engineer Nanodegree capstone project. However, I have changed some model details for this dog breed classifier, you can check [here](https://github.com/cyyeh/ml-engineering-ndegree/tree/master/projects/capstone-project/deployment) for more details.
 
 ## Setup
 
