@@ -209,12 +209,8 @@ imgUpload.addEventListener(
         imgPreview.height = imgPreview.width * 0.75
       }
 
-      reader.onloadend = () => {
-        const imgBase64 = reader.result
-
-        // start predicting dog breeds
-        predictDogBreeds(imgBase64)
-      }
+      // start predicting dog breeds
+      reader.onloadend = () => predictDogBreeds(reader.result)
 
       reader.readAsDataURL(selectedFile) // convert to base64 string
     } else {
