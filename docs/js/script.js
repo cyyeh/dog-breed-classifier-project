@@ -31,7 +31,7 @@ const divInstall = document.getElementById('install-container')
 const butInstall = document.getElementById('but-install')
 const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
-const totalSampleImageSize = 6
+const totalSampleImageSize = 133
 
 // utility functions
 const getRandomInt = max => Math.floor(Math.random() * Math.floor(max))
@@ -52,6 +52,11 @@ const speak = dogBreedName => {
   console.log(dogBreedName)
   speechSynthesis.speak(new SpeechSynthesisUtterance(dogBreedName))
 }
+const generateRandomDogBreed = () => {
+  const idx = getRandomInt(totalSampleImageSize)
+  sampleBreedImg.src = 'images/samples/' + idx + '.jpg'
+  sampleBreedName.textContent = dogBreedSamples[idx].breed
+}
 
 let firstBreed = ''
 let secondBreed = ''
@@ -68,9 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   // generating a random sample dog breed image
-  const idx = getRandomInt(totalSampleImageSize)
-  sampleBreedImg.src = 'images/samples/' + idx + '.jpg'
-  sampleBreedName.textContent = dogBreedSamples[idx].breed
+  generateRandomDogBreed()
 
   // copyright year
   copyrightYear.textContent = new Date().getFullYear()
@@ -225,9 +228,7 @@ imgUpload.addEventListener(
 // click card image to randomly generate a dog image
 sampleDogBreed.addEventListener('click', event => {
   // generating a random sample dog breed image
-  const idx = getRandomInt(totalSampleImageSize)
-  sampleBreedImg.src = 'images/samples/' + idx + '.jpg'
-  sampleBreedName.textContent = dogBreedSamples[idx].breed
+  generateRandomDogBreed()
 })
 
 // click sample breed predict button
