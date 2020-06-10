@@ -97,6 +97,12 @@ h1 {
 }
 
 #cover-3 {
+  background-image: url("../images/cover-voice.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#cover-4 {
   background-image: url("../images/cover-ai.jpg");
   background-position: center center;
   background-repeat: no-repeat;
@@ -226,6 +232,9 @@ h1 {
   #cover-3 {
     background-size: cover;
   }
+  #cover-4 {
+    background-size: cover;
+  }
   .predictiion-results-headline {
     font-size: 20px;
   }
@@ -260,6 +269,9 @@ h1 {
   #cover-3 {
     background-size: 768px;
   }
+  #cover-4 {
+    background-size: cover;
+  }
   .predictiion-results-headline {
     font-size: 20px;
   }
@@ -293,6 +305,9 @@ h1 {
   }
   #cover-3 {
     background-size: 768px;
+  }
+  #cover-4 {
+    background-size: cover;
   }
   .predictiion-results-headline {
     font-size: 20px;
