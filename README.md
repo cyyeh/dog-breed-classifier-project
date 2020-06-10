@@ -1,5 +1,11 @@
 # Dog Breed Classification Project
 
+## Project Functionalities
+
+- Users can know more about dog breeds and their information through taking photos or uploading photos.
+- Users can also directly use photos provided by the project to quickly play around.
+- Users can get top 3 dog breed prediction results with wikipedia links and english pronounciation.
+
 ## System Architecture
 
 ![](system-diagram.png)
