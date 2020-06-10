@@ -58,13 +58,8 @@ let thirdBreed = ''
 
 // initialization
 document.addEventListener('DOMContentLoaded', function() {
-  // carousel initialization
-  const carousel = document.getElementById('project-intro-slider')
+  // materialize initialization
   M.AutoInit()
-  M.Carousel.init(carousel, {
-    fullWidth: true,
-    indicators: true
-  })
 
   // generating a random sample dog breed image
   const idx = getRandomInt(totalSampleImageSize)
