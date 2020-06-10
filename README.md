@@ -4,7 +4,8 @@
 
 - Users can know more about dog breeds and their information through taking photos or uploading photos.
 - Users can also directly use photos provided by the project to quickly play around.
-- Users can get top 3 dog breed prediction results with wikipedia links and english pronounciation.
+- Users can get top 3 dog breed prediction results with wikipedia links.
+- Users can learn English and Chinese at the same time.
 
 ## System Architecture
 
@@ -72,5 +73,5 @@ Below commands are already written in `Makefile`, please checkout and change any
 
 ## Todos
 
-- [ ] support English
+- [x] support English
 - [ ] support PWA
