@@ -32,8 +32,11 @@
         <div class="nav-wrapper teal lighten-2">
           <a href="/dog-breed-classifier" class="brand-logo">
             <i class="material-icons" id="logo-icon">pets</i>
-            <span>狗狗百科</span>
+            <span id='website-title'>狗狗百科</span>
           </a>
+          <ul class="right">
+            <li><a class="btn-flat" id='translation-button'>En</a></li>
+          </ul>
         </div>
       </nav>
     </header>
@@ -42,23 +45,23 @@
       <div id='container'>
         <div class="carousel carousel-slider center" id='project-intro-slider'>
           <div class="carousel-fixed-item center">
-            <a class="btn waves-effect white grey-text darken-text-2" href='https://github.com/cyyeh/dog-breed-classifier' target='_blank'>深入了解技術細節</a>
+            <a id="cover-button" class="btn waves-effect white grey-text darken-text-2" href='https://github.com/cyyeh/dog-breed-classifier' target='_blank'>深入了解技術細節</a>
           </div>
           <div id="cover-1" class="carousel-item white orange-text" href="#one!">
-            <h2>一秒拍照來更認識狗狗吧！</h2>
-            <p class="black-text cover-subtitle">能偵測多達133種狗狗品種</p>
+            <h2 id="cover-1-title">一秒拍照來更認識狗狗吧！</h2>
+            <p id="cover-1-subtitle" class="black-text cover-subtitle">能偵測多達133種狗狗品種</p>
           </div>
           <div id="cover-2" class="carousel-item white orange-text" href="#two!">
-            <h2>一次認識3種狗狗</h2>
-            <p class="black-text cover-subtitle">附上維基連結讓你成為狗狗達人</p>
+            <h2 id="cover-2-title">一次認識3種狗狗</h2>
+            <p id="cover-2-subtitle" class="black-text cover-subtitle">附上維基連結讓你成為狗狗達人</p>
           </div>
           <div id="cover-3" class="carousel-item white orange-text" href="#three!">
-            <h2>還有英文發音功能</h2>
-            <p class="black-text cover-subtitle">讓你順便練習英文</p>
+            <h2 id="cover-3-title">還有英文發音功能</h2>
+            <p id="cover-3-subtitle" class="black-text cover-subtitle">讓你順便練習英文</p>
           </div>
           <div id="cover-4" class="carousel-item white white-text lighten-3" href="#four!">
-            <h2>透過深度學習賦予強大的辨識能力</h2>
-            <p class="black-text cover-subtitle">目前辨識準確度高達86-88%</p>
+            <h2 id="cover-4-title">透過深度學習賦予強大的辨識能力</h2>
+            <p id="cover-4-subtitle" class="black-text cover-subtitle">目前辨識準確度高達86-88%</p>
           </div>
         </div>
         
@@ -71,7 +74,7 @@
                   <input id="img-upload" type="file">
                 </div>
                 <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" accept="image/*" 
+                  <input id="img-upload-text" class="file-path validate" type="text" accept="image/*" 
                   capture="camera" placeholder="拍照或上傳照片"/>
                 </div>
               </div>
@@ -87,7 +90,7 @@
                       <span id="sample-breed-name" class="card-title"></span>
                     </div>
                     <div class="card-action center">
-                      <a id="sample-breed-predict" class="btn waves-effect white grey-text darken-text-2">進行偵測</a>
+                      <a id="sample-breed-predict" class="btn waves-effect white grey-text darken-text-2">進行預測</a>
                     </div>
                   </div>
                 </div>
@@ -106,7 +109,7 @@
             </div>
   
             <div id="prediction-results-container" class="hidden">
-              <p class="predictiion-results-headline">預測結果</p>
+              <p id="prediction-results-headline">預測結果</p>
               <hr/>
               <p id="no-results-found"></p>
               <div id="prediction-contents">

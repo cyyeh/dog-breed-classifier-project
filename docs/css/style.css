@@ -180,7 +180,7 @@ h1 {
   text-align: center;
 }
 
-.predictiion-results-headline {
+#prediction-results-headline {
   font-weight: bold;
 }
 
@@ -259,7 +259,7 @@ h1 {
   #cover-4 {
     background-size: cover;
   }
-  .predictiion-results-headline {
+  #prediction-results-headline {
     font-size: 20px;
   }
   .dog-breed-name {
@@ -316,7 +316,7 @@ h1 {
   #cover-4 {
     background-size: 768px;
   }
-  .predictiion-results-headline {
+  #prediction-results-headline {
     font-size: 24px;
   }
   .dog-breed-name {
@@ -363,7 +363,7 @@ h1 {
   #cover-4 {
     background-size: 768px;
   }
-  .predictiion-results-headline {
+  #prediction-results-headline {
     font-size: 28px;
   }
   .dog-breed-name {

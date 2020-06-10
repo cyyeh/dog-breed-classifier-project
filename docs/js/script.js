@@ -2,12 +2,30 @@
 
 import { dogBreeds } from './dog-breeds.js'
 import { dogBreedSamples } from './dog-breed-samples.js'
+import { translations } from './translations.js'
 import './smoothscroll.js'
 
+const translationButton = document.getElementById('translation-button')
+const websiteTitle = document.getElementById('website-title')
+const cover1Title = document.getElementById('cover-1-title')
+const cover1Subtitle = document.getElementById('cover-1-subtitle')
+const cover2Title = document.getElementById('cover-2-title')
+const cover2Subtitle = document.getElementById('cover-2-subtitle')
+const cover3Title = document.getElementById('cover-3-title')
+const cover3Subtitle = document.getElementById('cover-3-subtitle')
+const cover4Title = document.getElementById('cover-4-title')
+const cover4Subtitle = document.getElementById('cover-4-subtitle')
+const coverButton = document.getElementById('cover-button')
+const tryText = document.getElementById('try-text')
+const imgUploadText = document.getElementById('img-upload-text')
+const sampleBreedPredict = document.getElementById('sample-breed-predict')
+const progressNotes = document.getElementById('progress-notes')
+const predictionResultsHeadline = document.getElementById(
+  'prediction-results-headline'
+)
 const sampleDogBreed = document.getElementById('sample-dog-breed')
 const sampleBreedImg = document.getElementById('sample-breed-img')
 const sampleBreedName = document.getElementById('sample-breed-name')
-const sampleBreedPredict = document.getElementById('sample-breed-predict')
 const imgUpload = document.getElementById('img-upload')
 const imgPreview = document.getElementById('img-preview')
 const progressBar = document.getElementById('progress-bar')
@@ -26,12 +44,13 @@ const thirdBreedName = document.getElementById('third-breed-name')
 const thirdBreedProb = document.getElementById('third-breed-prob')
 const thirdSpeakerButton = document.getElementById('third-speaker-button')
 const copyrightYear = document.getElementById('copyright-year')
-
 const divInstall = document.getElementById('install-container')
 const butInstall = document.getElementById('but-install')
+
 const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 const totalSampleImageSize = 133
+let sampleBreedIdx = ''
 
 // utility functions
 const getRandomInt = max => Math.floor(Math.random() * Math.floor(max))
@@ -48,19 +67,35 @@ const toDataUrl = (url, callback) => {
   xhr.responseType = 'blob'
   xhr.send()
 }
-const speak = dogBreedName => {
-  speechSynthesis.speak(new SpeechSynthesisUtterance(dogBreedName))
+const synth = window.speechSynthesis
+const speak = (lang, dogBreedNameEn, dogBreedNameZh) => {
+  let u = new SpeechSynthesisUtterance()
+  if (lang === '中') {
+    u.text = dogBreedNameEn
+  } else {
+    u.lang = 'zh-TW'
+    u.text = dogBreedNameZh
+  }
+  synth.speak(u)
+}
+
+const getSampleBreedName = (lang, breedEn) => {
+  return lang === '中' ? breedEn : dogBreeds[breedEn].chinese
 }
 
 const generateRandomDogBreed = () => {
-  const idx = getRandomInt(totalSampleImageSize)
-  sampleBreedImg.src = 'images/samples/' + idx + '.jpg'
-  sampleBreedName.textContent = dogBreedSamples[idx].breed
+  sampleBreedIdx = getRandomInt(totalSampleImageSize)
+  sampleBreedImg.src = 'images/samples/' + sampleBreedIdx + '.jpg'
+  sampleBreedName.textContent = getSampleBreedName(
+    translationButton.textContent,
+    dogBreedSamples[sampleBreedIdx].breed
+  )
 }
 
-let firstBreed = ''
-let secondBreed = ''
-let thirdBreed = ''
+let firstBreed = {}
+let secondBreed = {}
+let thirdBreed = {}
+let errorCondition = ''
 
 // initialization
 document.addEventListener('DOMContentLoaded', function() {
@@ -78,6 +113,96 @@ document.addEventListener('DOMContentLoaded', function() {
   // copyright year
   copyrightYear.textContent = new Date().getFullYear()
 })
+
+// translation button event
+translationButton.addEventListener('click', event => {
+  // click to translate to English
+  if (translationButton.textContent === 'En') {
+    translationButton.textContent = '中'
+    websiteTitle.textContent = translations.en.siteTitle
+    cover1Title.textContent = translations.en.cover1Title
+    cover1Subtitle.textContent = translations.en.cover1Subtitle
+    cover2Title.textContent = translations.en.cover2Title
+    cover2Subtitle.textContent = translations.en.cover2Subtitle
+    cover3Title.textContent = translations.en.cover3Title
+    cover3Subtitle.textContent = translations.en.cover3Subtitle
+    cover4Title.textContent = translations.en.cover4Title
+    cover4Subtitle.textContent = translations.en.cover4Subtitle
+    coverButton.textContent = translations.en.coverButton
+    tryText.textContent = translations.en.tryText
+    imgUploadText.placeholder = translations.en.imgUploadText
+    sampleBreedPredict.textContent = translations.en.sampleBreedPredict
+    progressNotes.textContent = translations.en.progressNotes
+    predictionResultsHeadline.textContent =
+      translations.en.predictionResultsHeadline
+  } else {
+    translationButton.textContent = 'En'
+    websiteTitle.textContent = translations.zh.siteTitle
+    cover1Title.textContent = translations.zh.cover1Title
+    cover1Subtitle.textContent = translations.zh.cover1Subtitle
+    cover2Title.textContent = translations.zh.cover2Title
+    cover2Subtitle.textContent = translations.zh.cover2Subtitle
+    cover3Title.textContent = translations.zh.cover3Title
+    cover3Subtitle.textContent = translations.zh.cover3Subtitle
+    cover4Title.textContent = translations.zh.cover4Title
+    cover4Subtitle.textContent = translations.zh.cover4Subtitle
+    coverButton.textContent = translations.zh.coverButton
+    tryText.textContent = translations.zh.tryText
+    imgUploadText.placeholder = translations.zh.imgUploadText
+    sampleBreedPredict.textContent = translations.zh.sampleBreedPredict
+    progressNotes.textContent = translations.zh.progressNotes
+    predictionResultsHeadline.textContent =
+      translations.zh.predictionResultsHeadline
+  }
+
+  sampleBreedName.textContent = getSampleBreedName(
+    translationButton.textContent,
+    dogBreedSamples[sampleBreedIdx].breed
+  )
+  firstBreedName.textContent = getDogBreedName(
+    translationButton.textContent,
+    firstBreed.en,
+    firstBreed.zh
+  )
+  secondBreedName.textContent = getDogBreedName(
+    translationButton.textContent,
+    secondBreed.en,
+    secondBreed.zh
+  )
+  thirdBreedName.textContent = getDogBreedName(
+    translationButton.textContent,
+    thirdBreed.en,
+    thirdBreed.zh
+  )
+  if (errorCondition !== '') {
+    switch (errorCondition) {
+      case '1':
+        noResultsFound.textContent = showErrorTexts(
+          translationButton.textContent,
+          translations.en.errorText1,
+          translations.zh.errorText1
+        )
+        break
+      case '2':
+        noResultsFound.textContent = showErrorTexts(
+          translationButton.textContent,
+          translations.en.errorText2,
+          translations.zh.errorText2
+        )
+        break
+      default:
+        noResultsFound.textContent = showErrorTexts(
+          translationButton.textContent,
+          translations.en.errorText3,
+          translations.zh.errorText3
+        )
+    }
+  }
+})
+
+// show error texts based on current language
+const showErrorTexts = (lang, errorEn, errorZh) =>
+  lang === '中' ? errorEn : errorZh
 
 // cal predict dog classification api
 const predictDogBreeds = async imgBase64 => {
@@ -103,7 +228,12 @@ const predictDogBreeds = async imgBase64 => {
     predictionResultsContainer.classList.toggle('hidden', false)
     predictionContents.classList.toggle('hidden', true)
     noResultsFound.classList.toggle('hidden', false)
-    noResultsFound.textContent = '發生異常，請稍後再試！'
+    noResultsFound.textContent = showErrorTexts(
+      translationButton.textContent,
+      translations.en.errorText3,
+      translations.zh.errorText3
+    )
+    errorCondition = '3'
   })
 
   const predictionResults = await apiResponse.json()
@@ -114,20 +244,29 @@ const predictDogBreeds = async imgBase64 => {
   })
 }
 
+// get dog breed name based on current language
+const getDogBreedName = (lang, englishName, chineseName) => {
+  return lang === '中'
+    ? englishName + '(' + chineseName + ')'
+    : chineseName + '(' + englishName + ')'
+}
+
 // callback for dog classification api
 const dealingWithPredictions = predictionResults => {
   function updateDogPredictionContent(
     breedNameDOM,
     breedProbDOM,
+    breedEn,
+    breedZh,
     idx,
     probStr,
     animationKeyName
   ) {
-    breedNameDOM.textContent =
-      dogBreeds[predictionResults.message[idx].breed].chinese +
-      '(' +
-      predictionResults.message[idx].breed +
-      ')'
+    breedNameDOM.textContent = getDogBreedName(
+      translationButton.textContent,
+      breedEn,
+      breedZh
+    )
     breedNameDOM.href = dogBreeds[predictionResults.message[idx].breed].link
     breedProbDOM.textContent = probStr
     breedProbDOM.style.width = probStr
@@ -143,46 +282,74 @@ const dealingWithPredictions = predictionResults => {
           (parseFloat(predictionResults.message[i].prob) * 100).toFixed(2) + '%'
         switch (i) {
           case 0:
+            firstBreed = {
+              en: predictionResults.message[i].breed,
+              zh: dogBreeds[predictionResults.message[i].breed].chinese
+            }
+
             updateDogPredictionContent(
               firstBreedName,
               firstBreedProb,
+              firstBreed.en,
+              firstBreed.zh,
               i,
               probStr,
               '--first-breed-prob'
             )
-            firstBreed = predictionResults.message[i].breed
             break
           case 1:
+            secondBreed = {
+              en: predictionResults.message[i].breed,
+              zh: dogBreeds[predictionResults.message[i].breed].chinese
+            }
+
             updateDogPredictionContent(
               secondBreedName,
               secondBreedProb,
+              secondBreed.en,
+              secondBreed.zh,
               i,
               probStr,
               '--second-breed-prob'
             )
-            secondBreed = predictionResults.message[i].breed
             break
           default:
+            thirdBreed = {
+              en: predictionResults.message[i].breed,
+              zh: dogBreeds[predictionResults.message[i].breed].chinese
+            }
+
             updateDogPredictionContent(
               thirdBreedName,
               thirdBreedProb,
+              thirdBreed.en,
+              thirdBreed.zh,
               i,
               probStr,
               '--third-breed-prob'
             )
-            thirdBreed = predictionResults.message[i].breed
         }
       }
     } else {
       // no dog is detected
       predictionContents.classList.toggle('hidden', true)
       noResultsFound.classList.toggle('hidden', false)
-      noResultsFound.textContent = '嗯......狗狗偵測器沒有偵測到狗狗喔！'
+      noResultsFound.textContent = showErrorTexts(
+        translationButton.textContent,
+        translations.en.errorText2,
+        translations.zh.errorText2
+      )
+      errorCondition = '2'
     }
   } else {
     predictionContents.classList.toggle('hidden', true)
     noResultsFound.classList.toggle('hidden', false)
-    noResultsFound.textContent = '發生異常，請稍後再試！'
+    noResultsFound.textContent = showErrorTexts(
+      translationButton.textContent,
+      translations.en.errorText1,
+      translations.zh.errorText1
+    )
+    errorCondition = '1'
   }
 }
 
@@ -241,9 +408,15 @@ sampleBreedPredict.addEventListener('click', event => {
 })
 
 // click speakers to pronounce dog breed names
-firstSpeakerButton.addEventListener('click', event => speak(firstBreed))
-secondSpeakerButton.addEventListener('click', event => speak(secondBreed))
-thirdSpeakerButton.addEventListener('click', event => speak(thirdBreed))
+firstSpeakerButton.addEventListener('click', event =>
+  speak(translationButton.textContent, firstBreed.en, firstBreed.zh)
+)
+secondSpeakerButton.addEventListener('click', event =>
+  speak(translationButton.textContent, secondBreed.en, secondBreed.zh)
+)
+thirdSpeakerButton.addEventListener('click', event =>
+  speak(translationButton.textContent, thirdBreed.en, thirdBreed.zh)
+)
 
 /* 
 service worker things
