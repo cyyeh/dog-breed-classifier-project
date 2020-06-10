@@ -271,6 +271,16 @@ h1 {
   }
 }
 
+@media only screen and (max-width: 376px) {
+  .card {
+    width: 280px;
+  }
+  #sample-breed-img {
+    width: 280px;
+    height: 210px;
+  }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   #logo-icon {
     font-size: 36px;
