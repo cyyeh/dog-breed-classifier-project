@@ -1,5 +1,7 @@
 # Dog Breed Classification Project
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/65ca1a81-5b5e-4a3c-88f1-b183ef2b836e/deploy-status)](https://app.netlify.com/sites/laughing-keller-69d1b5/deploys)
+
 ## Project Functionalities
 
 - Users can know more about dog breeds and their information through taking photos or uploading photos.
