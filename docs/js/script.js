@@ -48,11 +48,12 @@ const thirdSpeakerButton = document.getElementById('third-speaker-button')
 const copyrightYear = document.getElementById('copyright-year')
 const divInstall = document.getElementById('install-container')
 const butInstall = document.getElementById('but-install')
+const html = document.getElementsByTagName('html')[0]
 
 const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 const totalSampleImageSize = 133
-let sampleBreedIdx = ''
+let sampleBreedIdx = 0
 
 // utility functions
 const getRandomInt = max => Math.floor(Math.random() * Math.floor(max))
@@ -110,7 +111,10 @@ const getSampleBreedName = (lang, breedEn) => {
 
 const generateRandomDogBreed = () => {
   sampleBreedIdx = getRandomInt(totalSampleImageSize)
-  sampleBreedImg.src = 'images/samples/' + sampleBreedIdx + '.jpg'
+  let dogImagePath = 'images/samples/' + sampleBreedIdx
+  sampleBreedImg.src = html.classList.contains('webp')
+    ? dogImagePath + '.webp'
+    : dogImagePath + '.jpg'
   sampleBreedName.textContent = getSampleBreedName(
     translationButton.textContent,
     dogBreedSamples[sampleBreedIdx].breed
