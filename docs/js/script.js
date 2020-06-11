@@ -1,7 +1,5 @@
 'use strict'
 
-// we also use the preloading technique which is declared in HTML head section
-// to enhance loading performance
 import { dogBreeds } from './dog-breeds.js'
 import { dogBreedSamples } from './dog-breed-samples.js'
 import { translations } from './translations.js'
