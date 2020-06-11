@@ -20,6 +20,8 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=['http://localhost:8080',
+                   'https://doggie-wiki.com',
+                   'https://www.doggie-wiki.com',
                    'https://cyyeh.github.io'],
     allow_credentials=False,
     allow_methods=['*'],
