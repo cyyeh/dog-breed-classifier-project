@@ -84,6 +84,11 @@ h1 {
   margin-right: 5px;
 }
 
+#translation-button {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .customized-col {
   padding: 0px !important;
 }

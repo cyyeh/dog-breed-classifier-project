@@ -456,7 +456,7 @@ window.addEventListener('beforeinstallprompt', event => {
   // stash the event so it can be triggered later
   window.deferredPrompt = event
   // remove the "hidden" class from the install button container
-  // divInstall.classList.toggle('hidden', false)
+  divInstall.classList.toggle('hidden', false)
 })
 
 window.addEventListener('appinstalled', event => {
@@ -486,7 +486,7 @@ butInstall.addEventListener('click', () => {
 /* Only register a service worker if it's supported */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/service-worker.js').then(
+    navigator.serviceWorker.register('js/service-worker.js').then(
       function(registration) {
         // Registration was successful
         console.log(
