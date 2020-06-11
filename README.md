@@ -77,3 +77,6 @@ Below commands are already written in `Makefile`, please checkout and change any
 
 - [x] support English
 - [ ] support PWA
+  - [ ] Android
+  - [ ] iOS
+- [ ] export the trained PyTorch models to edge devices for better inference performance
