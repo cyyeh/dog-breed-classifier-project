@@ -485,8 +485,20 @@ butInstall.addEventListener('click', () => {
 
 /* Only register a service worker if it's supported */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js').then(function(reg) {
-    console.log('Registration succeeded. Scope is ' + reg.scope)
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js').then(
+      function(registration) {
+        // Registration was successful
+        console.log(
+          'ServiceWorker registration successful with scope: ',
+          registration.scope
+        )
+      },
+      function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err)
+      }
+    )
   })
 }
 
