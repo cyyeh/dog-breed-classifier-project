@@ -25,7 +25,7 @@
 ## Project Structure
 
 - api: backend
-- docs: frontend
+- web: frontend
 
 ## Used Tools/Technologies
 
