@@ -6,33 +6,33 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   entry: './js/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'js/bundle.js'
   },
   devServer: {
-    contentBase: './dist' //where contents are served from
+    contentBase: './build' //where contents are served from
   },
   plugins: [
     new CopyPlugin({
       patterns: [
         {
           from: 'images/**/*',
-          to: path.resolve(__dirname, 'dist'),
+          to: path.resolve(__dirname, 'build'),
           force: true
         },
         {
           from: 'css/**/*',
-          to: path.resolve(__dirname, 'dist'),
+          to: path.resolve(__dirname, 'build'),
           force: true
         },
         {
           from: 'service-worker.js',
-          to: path.resolve(__dirname, 'dist'),
+          to: path.resolve(__dirname, 'build'),
           force: true
         },
         {
           from: 'manifest.json',
-          to: path.resolve(__dirname, 'dist'),
+          to: path.resolve(__dirname, 'build'),
           force: true
         }
       ]
@@ -46,6 +46,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/, //using regex to tell babel exactly what files to transcompile
+        include: path.resolve('./js/index.js'), // file to transpile
         exclude: /node_modules/, // files to be ignored
         use: {
           loader: 'babel-loader' // specify the loader

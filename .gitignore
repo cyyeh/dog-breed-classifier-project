@@ -1,6 +1,6 @@
 .cache/
 coverage/
-web/dist/
+web/build/
 web/node_modules/
 *.log
 .vscode
