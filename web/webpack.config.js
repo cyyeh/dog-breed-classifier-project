@@ -38,8 +38,8 @@ module.exports = {
       ]
     }),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './index.html'
+      inject: true,
+      template: path.resolve('./index.html')
     })
   ],
   module: {
