@@ -2,8 +2,10 @@ import re
 import base64
 from io import BytesIO
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
 from pydantic import BaseModel
 
 from dog_breed_classifier import DogBreedPrediction
@@ -14,7 +16,10 @@ model = None
 
 BASE64_IMAGE_PATTERN = '^data:image/.+;base64,'
 
+limiter = Limiter(key_func=get_remote_address)
 app = FastAPI()
+app.state.limiter = limiter
+app.add_exception_handler(HTTPException, _rate_limit_exceeded_handler)
 
 # cors setting
 app.add_middleware(
@@ -39,7 +44,8 @@ def read_healthcheck():
 
 
 @app.post('/classify-dog-breeds')
-async def classify_dog_breeds(img_data: ImageData):
+@limiter.limit("30/minute")
+async def classify_dog_breeds(img_data: ImageData, request: Request):
     global model, loaded_pretrained_model
 
     if model is None:

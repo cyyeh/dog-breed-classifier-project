@@ -52,6 +52,7 @@ const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 const totalSampleImageSize = 133
 let sampleBreedIdx = 0
+const rateLimitRegex = RegExp('^d*')
 
 // utility functions
 const getRandomInt = max => Math.floor(Math.random() * Math.floor(max))
@@ -372,12 +373,24 @@ const dealingWithPredictions = predictionResults => {
   } else {
     predictionContents.classList.toggle('hidden', true)
     noResultsFound.classList.toggle('hidden', false)
-    noResultsFound.textContent = showErrorTexts(
-      translationButton.textContent,
-      translations.en.errorText1,
-      translations.zh.errorText1
-    )
-    errorCondition = '1'
+    if (
+      'detail' in predictionResults &&
+      rateLimitRegex.test(predictionResults.detail)
+    ) {
+      noResultsFound.textContent = showErrorTexts(
+        translationButton.textContent,
+        translations.en.errorText4,
+        translations.zh.errorText4
+      )
+      errorCondition = '4'
+    } else {
+      noResultsFound.textContent = showErrorTexts(
+        translationButton.textContent,
+        translations.en.errorText1,
+        translations.zh.errorText1
+      )
+      errorCondition = '1'
+    }
   }
 }
 
