@@ -1,7 +1,7 @@
 .cache/
 coverage/
-dist/*
-!dist/index.html
+web/dist/*
+web/node_modules/
 node_modules/
 *.log
 .vscode
