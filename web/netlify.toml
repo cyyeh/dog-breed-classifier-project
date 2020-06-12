@@ -1,7 +1,7 @@
 [build]
   base = "web/"
   publish = "build/"
-  command = "npm run build"
+  command = "build npm run build"
 
   [build.processing]
     skip_processing = false
