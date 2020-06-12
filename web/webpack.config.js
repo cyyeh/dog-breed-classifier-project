@@ -6,33 +6,33 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   entry: './js/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './build' //where contents are served from
+    contentBase: './dist' //where contents are served from
   },
   plugins: [
     new CopyPlugin({
       patterns: [
         {
           from: 'images/**/*',
-          to: path.resolve(__dirname, 'build'),
+          to: path.resolve(__dirname, 'dist'),
           force: true
         },
         {
           from: 'css/**/*',
-          to: path.resolve(__dirname, 'build'),
+          to: path.resolve(__dirname, 'dist'),
           force: true
         },
         {
           from: 'service-worker.js',
-          to: path.resolve(__dirname, 'build'),
+          to: path.resolve(__dirname, 'dist'),
           force: true
         },
         {
           from: 'manifest.json',
-          to: path.resolve(__dirname, 'build'),
+          to: path.resolve(__dirname, 'dist'),
           force: true
         }
       ]
