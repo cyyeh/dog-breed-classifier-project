@@ -19,9 +19,7 @@ export const translations = {
     errorText1: 'Something is wrong, please try again later',
     errorText2: "Well......the app can't detect any dog in the photo",
     errorText3:
-      'There is something wrong while interpreting the image, please try another one',
-    errorText4:
-      "You've reached the rate limit of predicting dog breeds. Please try again later."
+      'There is something wrong while interpreting the image, please try another one'
   },
   zh: {
     siteTitle: '狗狗百科',
@@ -41,7 +39,6 @@ export const translations = {
     predictionResultsHeadline: '預測結果',
     errorText1: '發生異常，請稍後再試！',
     errorText2: '嗯......狗狗偵測器沒有偵測到狗狗喔！',
-    errorText3: '圖片解析異常，請試試另一張圖片',
-    errorText4: '您在短時間內預測狗狗品種次數過多，請稍後再試！'
+    errorText3: '圖片解析異常，請試試另一張圖片'
   }
 }
