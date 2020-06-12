@@ -14,7 +14,8 @@
   "dependencies": {
     "@babel/runtime": "^7.10.2",
     "core-js": "^3.6.5",
-    "style-loader": "^1.2.1"
+    "ndarray-ops": "^1.2.2",
+    "onnxjs": "^0.1.7"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
