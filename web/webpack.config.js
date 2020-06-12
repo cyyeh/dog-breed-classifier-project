@@ -7,7 +7,7 @@ module.exports = {
   entry: './js/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'js/bundle.js'
+    filename: 'bundle.js'
   },
   devServer: {
     contentBase: './build' //where contents are served from
