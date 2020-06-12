@@ -49,10 +49,14 @@ You can check [this repo](https://github.com/cyyeh/ml-engineering-ndegree/tree/m
 
 ### Frontend
 
-> please see the docs folder
-
+> please see the web folder
+- `npm install` (download dependencies first)
 - local development
   - `npm run start`
+- deployment
+  - `npm run build`
+
+You can checkout other commands in `package.json` in the web folder
 
 ### Backend
 
