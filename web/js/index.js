@@ -53,7 +53,6 @@ const predictionAPIEndpoint =
   'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 const totalSampleImageSize = 133
 let sampleBreedIdx = 0
-const rateLimitRegex = RegExp('^d*')
 
 // utility functions
 const getRandomInt = max => Math.floor(Math.random() * Math.floor(max))
