@@ -1,6 +1,5 @@
 'use strict'
 
-import './inference.js'
 import { dogBreeds } from './dog-breeds.js'
 import { dogBreedSamples } from './dog-breed-samples.js'
 import { translations } from './translations.js'

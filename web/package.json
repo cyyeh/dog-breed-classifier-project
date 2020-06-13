@@ -13,9 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.10.2",
-    "core-js": "^3.6.5",
-    "ndarray-ops": "^1.2.2",
-    "onnxjs": "^0.1.7"
+    "core-js": "^3.6.5"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
