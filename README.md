@@ -32,6 +32,8 @@
 - frontend
   - HTML/CSS/JavaScript
   - Materialize
+  - Babel
+  - Webpack
 - backend
   - Python
     - FastAPI
