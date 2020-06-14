@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
   entry: './js/index.js',
@@ -40,7 +41,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: path.resolve('./index.html')
-    })
+    }),
+    new OptimizeCSSAssetsPlugin({})
   ],
   module: {
     rules: [
