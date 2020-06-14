@@ -28,6 +28,7 @@ const sampleBreedImg = document.getElementById('sample-breed-img')
 const sampleBreedName = document.getElementById('sample-breed-name')
 const imgUpload = document.getElementById('img-upload')
 const imgPreview = document.getElementById('img-preview')
+const loadImgProgress = document.getElementById('load-img-progress')
 const progressBar = document.getElementById('progress-bar')
 const predictionResultsContainer = document.getElementById(
   'prediction-results-container'
@@ -108,6 +109,8 @@ const getSampleBreedName = (lang, breedEn) => {
 }
 
 const generateRandomDogBreed = () => {
+  loadImgProgress.classList.toggle('hidden', false)
+
   sampleBreedIdx = getRandomInt(totalSampleImageSize)
   let dogImagePath = 'images/samples/' + sampleBreedIdx
   sampleBreedImg.src = html.classList.contains('webp')
@@ -117,6 +120,8 @@ const generateRandomDogBreed = () => {
     translationButton.textContent,
     dogBreedSamples[sampleBreedIdx].breed
   )
+
+  loadImgProgress.classList.toggle('hidden', true)
 }
 
 let firstBreed = {}

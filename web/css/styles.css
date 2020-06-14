@@ -190,6 +190,10 @@ h1 {
   font-size: 16px;
 }
 
+#load-img-progress {
+  margin: 0;
+}
+
 .card {
   margin: 0 auto;
 }
