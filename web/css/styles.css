@@ -98,11 +98,11 @@ h1 {
   margin-bottom: 50px;
 }
 
-.no-webp #cover-1 {
+.no-webp #cover-1.lazyloaded {
   background-image: url("../images/cover-dog.jpg");
 }
 
-.webp #cover-1 {
+.webp #cover-1.lazyloaded {
   background-image: url("../images/cover-dog.webp");
 }
 
@@ -111,11 +111,11 @@ h1 {
   background-repeat: no-repeat;
 }
 
-.no-webp #cover-2 {
+.no-webp #cover-2.lazyloaded {
   background-image: url("../images/cover-wiki.png");
 }
 
-.webp #cover-2 {
+.webp #cover-2.lazyloaded {
   background-image: url("../images/cover-wiki.webp");
 }
 
@@ -124,11 +124,11 @@ h1 {
   background-repeat: no-repeat;
 }
 
-.no-webp #cover-3 {
+.no-webp #cover-3.lazyloaded {
   background-image: url("../images/cover-voice.png");
 }
 
-.webp #cover-3 {
+.webp #cover-3.lazyloaded {
   background-image: url("../images/cover-voice.webp");
 }
 
@@ -137,11 +137,11 @@ h1 {
   background-repeat: no-repeat;
 }
 
-.no-webp #cover-4 {
+.no-webp #cover-4.lazyloaded {
   background-image: url("../images/cover-ai.jpg");
 }
 
-.webp #cover-4 {
+.webp #cover-4.lazyloaded {
   background-image: url("../images/cover-ai.webp");
 }
 
