@@ -34,11 +34,6 @@ module.exports = {
           from: 'manifest.json',
           to: path.resolve(__dirname, 'dist'),
           force: true
-        },
-        {
-          from: 'models/**/*',
-          to: path.resolve(__dirname, 'dist'),
-          force: true
         }
       ]
     }),
