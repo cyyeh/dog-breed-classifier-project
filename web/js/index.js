@@ -4,6 +4,7 @@ import { dogBreeds } from './dog-breeds.js'
 import { dogBreedSamples } from './dog-breed-samples.js'
 import { translations } from './translations.js'
 import './smoothscroll.js'
+const imagesLoaded = require('imagesloaded')
 
 const translationButton = document.getElementById('translation-button')
 const websiteTitle = document.getElementById('website-title')
@@ -121,7 +122,9 @@ const generateRandomDogBreed = () => {
     dogBreedSamples[sampleBreedIdx].breed
   )
 
-  loadImgProgress.classList.toggle('hidden', true)
+  imagesLoaded(sampleBreedImg, () => {
+    loadImgProgress.classList.toggle('hidden', true)
+  })
 }
 
 let firstBreed = {}
