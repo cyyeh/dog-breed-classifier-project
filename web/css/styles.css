@@ -67,10 +67,6 @@ main {
   flex: 1 0 auto;
 }
 
-#github-icon-button {
-  height: 64px !important;
-}
-
 a,
 a:visited {
   color: white;
@@ -260,6 +256,10 @@ h1 {
 }
 
 @media only screen and (max-width: 767px) {
+  #github-icon-button {
+    height: 56px !important;
+  }
+
   #github-icon {
     font-size: 1.33333333em;
     line-height: .75em;
@@ -306,6 +306,10 @@ h1 {
 }
 
 @media only screen and (max-width: 376px) {
+  #github-icon-button {
+    height: 56px !important;
+  }
+
   #github-icon {
     font-size: 1.33333333em;
     line-height: .75em;
@@ -322,6 +326,10 @@ h1 {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #github-icon-button {
+    height: 64px !important;
+  }
+
   #github-icon {
     font-size: 1.33333333em;
     line-height: .75em;
@@ -375,6 +383,10 @@ h1 {
 }
 
 @media only screen and (min-width: 1024px) {
+  #github-icon-button {
+    height: 64px !important;
+  }
+
   #github-icon {
     font-size: 2em;
   }
