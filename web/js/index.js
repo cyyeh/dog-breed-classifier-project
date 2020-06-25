@@ -5,6 +5,7 @@ import { dogBreedSamples } from './dog-breed-samples.js'
 import { translations } from './translations.js'
 import './smoothscroll.js'
 const imagesLoaded = require('imagesloaded')
+import { predict } from './inference.js'
 
 const translationButton = document.getElementById('translation-button')
 const websiteTitle = document.getElementById('website-title')
@@ -49,9 +50,6 @@ const copyrightYear = document.getElementById('copyright-year')
 const divInstall = document.getElementById('install-container')
 const butInstall = document.getElementById('but-install')
 const html = document.getElementsByTagName('html')[0]
-
-const predictionAPIEndpoint =
-  'https://dog-breed-classifier-t567wrmnkq-de.a.run.app/classify-dog-breeds'
 const totalSampleImageSize = 133
 let sampleBreedIdx = 0
 
@@ -240,8 +238,8 @@ translationButton.addEventListener('click', event => {
 const showErrorTexts = (lang, errorEn, errorZh) =>
   lang === '中' ? errorEn : errorZh
 
-// cal predict dog classification api
-const predictDogBreeds = async imgBase64 => {
+// cal predict dog classification
+const predictDogBreeds = async imgUrl => {
   predictionResultsContainer.classList.toggle('hidden', true)
   predictionContents.classList.toggle('hidden', false)
   noResultsFound.classList.toggle('hidden', true)
@@ -251,28 +249,7 @@ const predictDogBreeds = async imgBase64 => {
     behavior: 'smooth'
   })
 
-  const apiResponse = await fetch(predictionAPIEndpoint, {
-    method: 'POST',
-    body: JSON.stringify({
-      base64: imgBase64
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).catch(function() {
-    progressBar.classList.toggle('hidden', true)
-    predictionResultsContainer.classList.toggle('hidden', false)
-    predictionContents.classList.toggle('hidden', true)
-    noResultsFound.classList.toggle('hidden', false)
-    noResultsFound.textContent = showErrorTexts(
-      translationButton.textContent,
-      translations.en.errorText3,
-      translations.zh.errorText3
-    )
-    errorCondition = '3'
-  })
-
-  const predictionResults = await apiResponse.json()
+  const predictionResults = await predict(imgUrl)
   progressBar.classList.toggle('hidden', true)
   dealingWithPredictions(predictionResults)
   predictionResultsContainer.scrollIntoView({
@@ -392,13 +369,15 @@ const dealingWithPredictions = predictionResults => {
 // image upload button click event
 imgUpload.addEventListener(
   'change',
-  event => {
+  async event => {
     predictionResultsContainer.classList.toggle('hidden', true)
     predictionContents.classList.toggle('hidden', false)
     noResultsFound.classList.toggle('hidden', true)
 
     const selectedFile = event.target.files[0]
     if (selectedFile.type.startsWith('image/')) {
+      const selectedFileURL = window.URL.createObjectURL(selectedFile)
+      await predictDogBreeds(selectedFileURL)
       let reader = new FileReader()
 
       reader.onload = event => {
@@ -409,9 +388,6 @@ imgUpload.addEventListener(
             : window.innerWidth
         imgPreview.height = imgPreview.width * 0.75
       }
-
-      // start predicting dog breeds
-      reader.onloadend = () => predictDogBreeds(reader.result)
 
       reader.readAsDataURL(selectedFile) // convert to base64 string
     } else {
@@ -434,13 +410,9 @@ sampleDogBreed.addEventListener('click', event => {
 })
 
 // click sample breed predict button
-sampleBreedPredict.addEventListener('click', event => {
-  // conver image to base64 first, then predict dog breeds
-  toDataUrl(sampleBreedImg.src, function(imgBase64) {
-    // start predicting dog breeds
-    imgPreview.height = 0
-    predictDogBreeds(imgBase64)
-  })
+sampleBreedPredict.addEventListener('click', async event => {
+  imgPreview.height = 0
+  await predictDogBreeds(sampleBreedImg.src)
 })
 
 // click speakers to pronounce dog breed names
