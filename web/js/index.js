@@ -364,19 +364,11 @@ imgUpload.addEventListener(
     const selectedFile = event.target.files[0]
     if (selectedFile.type.startsWith('image/')) {
       const selectedFileURL = window.URL.createObjectURL(selectedFile)
+      imgPreview.src = selectedFileURL
+      imgPreview.width =
+        window.innerWidth >= 768 ? window.innerWidth * 0.75 : window.innerWidth
+      imgPreview.height = imgPreview.width * 0.75
       await predictDogBreeds(selectedFileURL)
-      let reader = new FileReader()
-
-      reader.onload = event => {
-        imgPreview.src = event.target.result
-        imgPreview.width =
-          window.innerWidth >= 768
-            ? window.innerWidth * 0.75
-            : window.innerWidth
-        imgPreview.height = imgPreview.width * 0.75
-      }
-
-      reader.readAsDataURL(selectedFile) // convert to base64 string
     } else {
       imgPreview.src = null
       imgPreview.height = 0
