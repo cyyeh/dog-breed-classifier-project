@@ -55,19 +55,6 @@ let sampleBreedIdx = 0
 
 // utility functions
 const getRandomInt = max => Math.floor(Math.random() * Math.floor(max))
-const toDataUrl = (url, callback) => {
-  var xhr = new XMLHttpRequest()
-  xhr.onload = function() {
-    var reader = new FileReader()
-    reader.onloadend = function() {
-      callback(reader.result)
-    }
-    reader.readAsDataURL(xhr.response)
-  }
-  xhr.open('GET', url)
-  xhr.responseType = 'blob'
-  xhr.send()
-}
 // https://gist.github.com/Eotones/d67be7262856a79a77abeeccef455ebf?fbclid=IwAR0o93EpbKoFy_UGG4EfSmdtT6TqyiYrFOLmz7IyVUvPbFiPhD6nJXvzObk
 const synth = window.speechSynthesis
 const speak = (lang, dogBreedNameEn, dogBreedNameZh) => {
